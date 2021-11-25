@@ -312,226 +312,185 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \end{equation}
 
 \pagebreak
-\section{\textbf{DENEYSEL SONUÇLAR VE TARTIŞMA}}
-
-\subsection{\textbf{K-Nearest Neighbor}}
-Şekil \ref{fig:08}'de \textbf{K-Nearest Neighbor} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(145 + 154) / (145 + 68 + 113 + 154) = 0.62$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.62) = 0.38$
-
+\section{\textbf{SONUÇLAR}}
+\subsection{\textbf{Confusion Matrix (Hata Matrisi)}}
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_08.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_08.png}&
+		\end{tabular}
 	\end{center}
-	\caption{K-Nearest Neighbor Hata Matrisi}%
+	\caption{K-Nearest Neighbor Hata Matrisi}
 	\label{fig:08}
 \end{figure}
 
-\quad \textbf{K-Nearest Neighbor} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:09}'daki gibidir. Şekildeki değerlerin ortalaması 0.6289, standart devinasyonu ise 0.1050'dir. 
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_09.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_09.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{K-Nearest Neighbor Cross-Validation Değerleri}}%
+	\caption{Support Vector Machines Hata Matrisi}
 	\label{fig:09}
 \end{figure}
 
-\pagebreak
-\subsection{\textbf{Support Vector Machines (SVM)}}
-Şekil \ref{fig:10}'da \textbf{Support Vector Machines} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(145 + 187) / (145 + 68 + 80 + 187) = 0.69$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.69) = 0.31$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_10.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_10.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Support Vector Machines Hata Matrisi}}%
+	\caption{Logistic Regression Hata Matrisi}
 	\label{fig:10}
 \end{figure}
-
-\quad \textbf{Support Vector Machines} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:11}'deki gibidir. Şekildeki değerlerin ortalaması 0.7179, standart devinasyonu ise 0.1032'dir. 
-
+\pagebreak
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_11.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_11.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Support Vector Machines Cross-Validation Değerleri}}%
+	\caption{Naive Bayes Hata Matrisi}
 	\label{fig:11}
 \end{figure}
 
-\pagebreak
-\subsection{\textbf{Logistic Regression}}
-Şekil \ref{fig:12}'de \textbf{Logistic Regression} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(153 + 201) / (153 + 60 + 66 + 201) = 0.73$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.73) = 0.27$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_12.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_12.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Logistic Regression Hata Matrisi}}%
+	\caption{Decision Tree Hata Matrisi}
 	\label{fig:12}
 \end{figure}
 
-\quad \textbf{Logistic Regression} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:13}'deki gibidir. Şekildeki değerlerin ortalaması 0.7348, standart devinasyonu ise 0.0932'dir. 
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_13.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_13.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Logistic Regression Cross-Validation Değerleri}}%
+	\caption{Bagging Hata Matrisi}
 	\label{fig:13}
 \end{figure}
-
 \pagebreak
-\subsection{\textbf{Naive Bayes}}
-Şekil \ref{fig:14}'de \textbf{Naive Bayes} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(150 + 209) / (150 + 63 + 58 + 209) = 0.74$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.73) = 0.26$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_14.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.4]{pictures/pic_14.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Naive Bayes Hata Matrisi}}%
+	\caption{Random Forest Tree Hata Matrisi}
 	\label{fig:14}
 \end{figure}
 
-\quad \textbf{Naive Bayes} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:15}'deki gibidir. Şekildeki değerlerin ortalaması 0.7222, standart devinasyonu ise 0.1130'dur. 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+					& \textbf{acc}	& \textbf{MSE}	& \textbf{AUC}	\\ \hline
+		\textbf{Bagg}	& 0.78		& 0.21		& 0.780		\\ \hline
+		\textbf{DT}		& 0.76		& 0.23 		& 0.761		\\ \hline
+		\textbf{KNN}	& 0.62		& 0.37 		& 0.629		\\ \hline
+		\textbf{LG}		& 0.76		& 0.26		& 0.736		\\ \hline
+		\textbf{NB}		& 0.74		& 0.25		& 0.743		\\ \hline
+		\textbf{RF}		& \textbf{0.80}	& \textbf{0.19}	& \textbf{0.799}	\\ \hline
+		\textbf{SVM}	& 0.69		& 0.30		& 0.691		\\ \hline
+	\end{tabular}
+	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textit{acc, MSE ve AUC} ölçütlerinin ortalama değerleri}
+	\label{tbl:01}
+\end{table}
 
+\quad 
+
+\pagebreak
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_15.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_15.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Naive Bayes Cross-Validation Değerleri}}%
+	\caption{K-Nearest Neighbor Hata Matrisi}
 	\label{fig:15}
 \end{figure}
 
-\pagebreak
-\subsection{\textbf{Decision Tree}}
-Şekil \ref{fig:16}'da \textbf{Decision Tree} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(152 + 216) / (152 + 61 + 51 + 216) = 0.76$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.76) = 0.24$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_16.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_16.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Decision Tree Hata Matrisi}}%
+	\caption{Support Vector Machines Hata Matrisi}
 	\label{fig:16}
 \end{figure}
 
-\quad \textbf{Decision Tree} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:17}'deki gibidir. Şekildeki değerlerin ortalaması 0.6879, standart devinasyonu ise 0.0903'dur. 
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_17.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_17.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Decision Tree Cross-Validation Değerleri}}%
+	\caption{Logistic Regression Hata Matrisi}
 	\label{fig:17}
 \end{figure}
 
-\pagebreak
-\subsection{\textbf{Bagging}}
-Şekil \ref{fig:18}'de \textbf{Bagging} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(172 + 205) / (172 + 41 + 62 + 205) = 0.78$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.78) = 0.22$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_18.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_18.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Bagging Hata Matrisi}}%
+	\caption{Naive Bayes Hata Matrisi}
 	\label{fig:18}
 \end{figure}
 
-\quad \textbf{Bagging} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:19}'daki gibidir. Şekildeki değerlerin ortalaması 0.6986, standart devinasyonu ise 0.0955'dur. 
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_19.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_19.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Bagging Cross-Validation Değerleri}}%
+	\caption{Decision Tree Hata Matrisi}
 	\label{fig:19}
 \end{figure}
 
-\pagebreak
-\subsection{\textbf{Random Forest Tree}}
-Şekil \ref{fig:20}'de \textbf{Random Forest Tree} algoritmamızın hata matrisinin görselini görüyoruz. Hata matrisindeki değerleri kullanarak:
-\linebreak \textbf{Doğruluk değeri: } $(164 + 221) / (164 + 49 + 46 + 221) = 0.80$
-\linebreak \textbf{Hata oranı: } $1 - Dogruluk Degeri(0.80) = 0.20$
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.5]{pictures/pic_20.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_20.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Random Forest Tree Hata Matrisi}}%
+	\caption{Bagging Hata Matrisi}
 	\label{fig:20}
 \end{figure}
 
-\quad \textbf{Random Forest Tree} algoritmasını Cross-Validation'a soktuk ve 30 kere rastgele verilerle çalışmasını sağladık. Bu değerlerin grafiği Şekil \ref{fig:21}'deki gibidir. Şekildeki değerlerin ortalaması 0.7448, standart devinasyonu ise 0.1085'dur. 
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.2]{pictures/pic_21.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.2]{pictures/pic_21.png}&
+		\end{tabular}
 	\end{center}
-	\caption{{Random Forest Tree Cross-Validation Değerleri}}%
+	\caption{Random Forest Tree Hata Matrisi}
 	\label{fig:21}
 \end{figure}
 
+
 \pagebreak
+\newpage
 \subsection{\textbf{Tüm Algoritmalara Ait Sonuçlar \& ROC Eğrisi Grafiği}}
 \quad Belirlediğimiz algoritmaları çalıştırdık ve sonuçlarını aldık. Bu sonuçları görsel olarak Şekil \ref{fig:22}'de belirttik. Sonuçlar liste olarak:
 

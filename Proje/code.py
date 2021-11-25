@@ -297,7 +297,6 @@ sc.set_array([])
 plt.colorbar(sc)
 
 ax.bar3d(x, y, z, dx, dy, dz, color=colors, zsort='average')
-ax.set_xlabel('Algoritmalar')
 ax.set_ylabel('Cross-Validation Çalışmaları')
 ax.set_zlabel('Cross-Validation Çıktıları')
 
