@@ -1,29 +1,38 @@
-from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import axes3d
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Fixing random state for reproducibility
-np.random.seed(19680801)
-
-
+np.random.seed(1234)
 fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-x = [0.902, 0.840, 0.647, 0.545, 0.345, 0.152]
-y = [1, 2, 3, 4, 5, 6]
-hist, xedges, yedges = np.histogram2d(x, y, bins=6)
+ax1 = fig.add_subplot(111, projection='3d')
+A = np.random.randint(5, size=(25, 10))
+X = ["knn","decision tree","bagg", "svm", "naive","log","random"]
+x = np.array([[i] * 10 for i in range(25)]).ravel() # x coordinates of each bar
+y = np.array([i for i in range(10)] * 25) # y coordinates of each bar
+z = np.zeros(25*10) # z coordinates of each bar
 
-xpos, ypos = np.meshgrid(xedges[:-1] + 0.25, yedges[:-1] + 0.25)
-xpos = xpos.flatten('F')
-ypos = ypos.flatten('F')
-zpos = np.zeros_like(xpos)
+print(x)
+print(y)
+print(z)
 
-# Construct arrays with the dimensions for the 16 bars.
-dx = 0.5 * np.ones_like(zpos)
-dy = dx.copy()
-dz = hist.flatten()
+dx = np.ones(25*10) # length along x-axis of each bar
+dy = np.ones(25*10) # length along y-axis of each bar
+dz = A.ravel() # length along z-axis of each bar (height)
 
-ax.bar3d(xpos, ypos, zpos, dx, dy, dz, color='b', zsort='average')
-ax.set_xlabel("X")
-ax.set_ylabel("Y")
-ax.set_zlabel("Z")
+print(A)
+print(dz)
+
+from matplotlib import cm
+from matplotlib.colors import Normalize
+cmap = cm.get_cmap('plasma')
+norm = Normalize(vmin=min(dz), vmax=max(dz))
+colors = cmap(norm(dz))
+
+
+sc = cm.ScalarMappable(cmap=cmap,norm=norm)
+sc.set_array([])
+plt.colorbar(sc)
+ax1.bar3d(x, y, z, dx, dy, dz, color=colors)
+ax1.set_xlim(0, 100)
+
 plt.show()

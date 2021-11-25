@@ -86,7 +86,6 @@ def plot_SVM(data, row_1, row_2, model, title):
     plt.show()
 
 def plot_confusion_matrix(Ytest, Ypred, label):
-    return
     confusionMatrix = confusion_matrix(Ytest, Ypred)
     f, ax = plt.subplots(figsize=(5, 5))
     
@@ -114,7 +113,6 @@ def log_MSEs(test, preds, labels):
 
 def cross_valid_graph(model, X, y, model_name, color='gray', cv=30):
     scores = cross_val_score(model, X, y, cv=cv)
-    return scores
     fig, axes = plt.subplots(figsize=(35,10), dpi=100)
     sns.set(font_scale=1.5)
     plt.bar(range(1, len(scores) + 1), height=scores, color=color)
@@ -168,6 +166,7 @@ knnModel.fit(X_train, y_train)
 Ypred_knn = knnModel.predict(X_test)
 preds.append(Ypred_knn)
 
+cross_scores.append(cross_valid_graph(knnModel, X, y, algorithms[0], 'red'))
 plot_confusion_matrix(y_test, Ypred_knn, algorithms[0])
 scores = [[algorithms[0], knnModel.score(X_test, y_test)]]
 ### plot_ROC(y_test, Ypred_knn, algorithms[0])
@@ -178,6 +177,7 @@ svcModel.fit(X_train, y_train)
 Ypred_svc = svcModel.predict(X_test)
 preds.append(Ypred_svc)
 
+cross_scores.append(cross_valid_graph(svcModel, X, y, algorithms[1], 'gray'))
 scores.append([algorithms[1], svcModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_svc, algorithms[1])
 #plot_SVM(data, 0, 2, svcModel, algorithms[1])
@@ -189,6 +189,7 @@ logisticModel.fit(X_train, y_train)
 Ypred_logistic = logisticModel.predict(X_test)
 preds.append(Ypred_logistic)
 
+cross_scores.append(cross_valid_graph(logisticModel, X, y, algorithms[2], 'blue'))
 scores.append([algorithms[2], logisticModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_logistic, algorithms[2])
 ### plot_ROC(y_test, Ypred_logistic, algorithms[2])
@@ -199,6 +200,7 @@ naiveBayesModel.fit(X_train, y_train)
 Ypred_naiveBayes = naiveBayesModel.predict(X_test)
 preds.append(Ypred_naiveBayes)
 
+cross_scores.append(cross_valid_graph(naiveBayesModel, X, y, algorithms[3], 'orange'))
 scores.append([algorithms[3], naiveBayesModel.score(X_test,y_test)])
 plot_confusion_matrix(y_test, Ypred_naiveBayes, algorithms[3])
 ### plot_ROC(y_test, Ypred_naiveBayes, algorithms[3])
@@ -209,6 +211,7 @@ decisionTreeModel.fit(X_train, y_train)
 Ypred_decisionTree = decisionTreeModel.predict(X_test)
 preds.append(Ypred_decisionTree)
 
+cross_scores.append(cross_valid_graph(decisionTreeModel, X, y, algorithms[4], 'purple'))
 scores.append([algorithms[4], decisionTreeModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_decisionTree, algorithms[4])
 ### plot_ROC(y_test, Ypred_decisionTree, algorithms[4])
@@ -219,6 +222,7 @@ baggingModel.fit(X_train, y_train)
 Ypred_bagging = baggingModel.predict(X_test)
 preds.append(Ypred_bagging)
 
+cross_scores.append(cross_valid_graph(baggingModel, X, y, algorithms[5], 'yellow'))
 scores.append([algorithms[5], baggingModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_bagging, algorithms[5])
 ### plot_ROC(y_test, Ypred_bagging, algorithms[5])
@@ -230,13 +234,6 @@ Ypred_randomForestTree = randomForestTreeModel.predict(X_test)
 preds.append(Ypred_randomForestTree)
 
 cross_scores.append(cross_valid_graph(randomForestTreeModel, X, y, algorithms[6], 'pink'))
-cross_scores.append(cross_valid_graph(logisticModel, X, y, algorithms[2], 'blue'))
-cross_scores.append(cross_valid_graph(naiveBayesModel, X, y, algorithms[3], 'orange'))
-cross_scores.append(cross_valid_graph(svcModel, X, y, algorithms[1], 'gray'))
-cross_scores.append(cross_valid_graph(baggingModel, X, y, algorithms[5], 'yellow'))
-cross_scores.append(cross_valid_graph(decisionTreeModel, X, y, algorithms[4], 'purple'))
-cross_scores.append(cross_valid_graph(knnModel, X, y, algorithms[0], 'red'))
-
 scores.append([algorithms[6], randomForestTreeModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_randomForestTree, algorithms[6])
 ### plot_ROC(y_test, Ypred_randomForestTree, algorithms[6])
@@ -256,49 +253,4 @@ for i in scores:
 fig, axes = plt.subplots(figsize=(35,10), dpi=100)
 plt.bar(a, height=b, color=['red', 'gray', 'blue', 'orange', 'purple', 'yellow', 'pink'])
 plt.title('Kırmızı Şarap Kalitesi')
-plt.show()
-
-for cross in cross_scores:
-    print(statistics.mean(cross))
-
-cross_means = []
-for i in range(len(cross_scores)):
-    cross_scores[i].sort()
-    cross_means.append(statistics.mean(cross_scores[i]))
-
-
-
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-
-
-
-X = ["knn","decision tree","bagg", "svm", "naive","log","random"] #algoritma adı
-
-x = np.array([[i] * 30 for i in range(1, 8)]).ravel() #algoritma çalışma sayısı
-y = np.array([i for i in range(1, 31)] * len(X))
-z = np.zeros(len(X)*30)
-
-dx = np.ones(len(X)*30) # length along x-axis of each bar
-dy = np.ones(len(X)*30) # length along y-axis of each bar
-dz = np.array(cross_scores).ravel() # length along z-axis of each bar (height)
-
-xs = np.random.rand(100)
-ys = np.random.rand(100)
-zs = np.random.rand(100)
-
-from matplotlib import cm
-from matplotlib.colors import Normalize
-cmap = cm.get_cmap('plasma')
-norm = Normalize(vmin=min(dz), vmax=max(dz))
-colors = cmap(norm(dz))
-sc = cm.ScalarMappable(cmap=cmap,norm=norm)
-sc.set_array([])
-plt.colorbar(sc)
-
-ax.bar3d(x, y, z, dx, dy, dz, color=colors, zsort='average')
-ax.set_xlabel('Algoritmalar')
-ax.set_ylabel('Cross-Validation Çalışmaları')
-ax.set_zlabel('Cross-Validation Çıktıları')
-
 plt.show()
