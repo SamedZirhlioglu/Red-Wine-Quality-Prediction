@@ -74,7 +74,6 @@ Kırmızı Şarap, Kalite, KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağa
 \end{IEEEanahtar}
 
 
-
 \begin{abstract}
 Wine is an alcoholic beverage that has been consumed since time immemorial, identified with cuisine in western societies. Although it can be produced with different fruits, the first fruit that comes to mind when it comes to wine is grapes. Wine has a very Large scale. That is why the quality ratio of each wine is different. One of the wines produced with grapes is red wine. It should be noted that some attributes of red wine (alcohol content, pH, chloride, etc.) the quality of the wine can be estimated by examining its values. In order to examine these values, we used some artificial intelligence algorithms (KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Bagging, and Random Forest Tree) that we also determined. The algorithms we use are usually classification algorithms. This is because we want to label the wine as good quality or poor quality (0-1).
 \end{abstract}
@@ -82,6 +81,7 @@ Wine is an alcoholic beverage that has been consumed since time immemorial, iden
 \begin{IEEEkeywords}
 Red Wine, Quality, KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Bagging, and Random Forest Tree
 \end{IEEEkeywords}
+
 \section{\textbf{GİRİŞ}}
 \quad Şarap, diğer adıyla mey. Parçalanmış veya parçalanmamış üzümün fermente edilmesiyle\cite{1} üretilen, tescillenmiş veya tescillenmemiş, \%9-15 oranda alkole sahip\cite{2} bir içecektir. Tescillenmiş şaraplar, üretildiği coğrafi bölgenin bir işaretini taşır\cite{3}.
 
@@ -184,7 +184,7 @@ KNN algoritmasının aşamaları\cite{9}:
 \pagebreak
 \subsection{\textbf{Logistic Regression}}
 
-\quad Lojistik Regresyon,bize sonucu 0 veya 1 şeklinde üreten, değişkenlerin modellenmesinde kullanılan algoritmadır. Örneğin kırmızı şarap kalitesini ele aldığımız zaman; elimizdeki veri setinde 0 kalitesiz, 1 kaliteli durumunu temsil eder. Kısacası Lojistik Regresyon yöntemiyle kullanılan örneklemlerin hangi sınıfa ait olduklarını belirleyebiliriz\cite{13}.
+\quad Lojistik Regresyon,bize sonucu 0 veya 1 şeklinde üreten, değişkenlerin modellenmesinde kullanılan algoritmadır. Örneğin kırmızı şarap kalitesini ele aldığımız zaman; elimizdeki veri setinde 0 kalitesiz, 1 kaliteli durumunu temsil eder. Yani Lojistik Regresyon algoritmasıyla predict edilen verilerin ait oldukları sınıfları tahmin edebiliriz\cite{13}.
 
 \begin{equation}
 \label{eq:03}
@@ -241,7 +241,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:05}
 \end{figure}
 
-\quad Entropi, verilerimizle alakalı belirsizliğin bir ölçüsüdür; dolayısıyla entropinin düşük olması tercih edilir. Sezgisel olarak verilerin tamamı aynı etikete sahipse, veri setinin entropisinin düşük olduğunu söyleyebiliriz\cite{16}.
+\quad Entropi, verilerimizle alakalı belirsizliğin bir ölçüsüdür; dolayısıyla entropinin düşük olması tercih edilir. Verilerimizin tamamı sezgsel olarak aynı etikete sahipse, veri setinin entropisi düşüktür diyebiliriz\cite{16}.
 
 \begin{equation}
 \label{eq:05}
@@ -280,14 +280,14 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \end{figure}
 \newpage
 \subsection{\textbf{Random Forest Tree}}
-\quad Türkçe adıyla Rastgele Orman Ağacı Algoritması, denetimli bir sınıflandırma algoritmasıdır. Adından da anlaşılacağı gibi, algoritmamız rastgele bir orman yaratıyor. Bu ormandaki ağaç sayısı ve elde edilebilecek sonuçlar arasında doğrusal bir ilişki vardır. Ağaç sayısı arttıkça elde edilecek olan sonucun kesinliği de artar. Rastgele Orman Ağacı’nın Karar Ağacı’ndan farkı; kök bulma ve düğümleri bölme işlemlerinin çalışıyor olmasıdır\cite{19}. Rastgele Orman Ağacı’nın şeması Şekil \ref{fig:07}'de verilmiştir.
+\quad Türkçe adıyla Rastgele Orman Ağacı Algoritması, denetimli bir sınıflandırma algoritmasıdır. Adından da anlaşılacağı gibi, algoritmamız rastgele bir orman yaratıyor. Ormanda bulubab ağaç sayısı ile elde ettiğimiz çıktılar arasında doğrusal bir ilişki vardır. Ağaç sayısı arttıkça elde edilecek olan sonucun kesinliği de artar. Rastgele Orman Ağacı’nın Karar Ağacı’ndan farkı; kök bulma ve düğümleri bölme işlemlerinin çalışıyor olmasıdır\cite{19}. Rastgele Orman Ağacı’nın şeması Şekil \ref{fig:07}'de verilmiştir.
 
 \begin{figure}[!h]
 	\centering%
 	%\scriptsize
 	\begin{center}
 		\begin{tabular}{cc}%
-			\includegraphics[scale=0.29]{pictures/pic_07.png}&%
+			\includegraphics[scale=0.45]{pictures/pic_07.png}&%
 		\end{tabular}%
 	\end{center}
 	\caption{Örnek bir Rastgele Orman Ağacı Şeması\cite{20}}%
@@ -313,29 +313,81 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 
 \pagebreak
 \section{\textbf{SONUÇLAR}}
-\subsection{\textbf{Confusion Matrix (Hata Matrisi)}}
+
+\quad Elimizdeki veri setinin $\%70$'ini, belirlediğimiz ve açıkladığımız algoritmaların eğitiminde kullandık. Bu eğitimlersonrasında, veri setimizinin geri kalan $\%30$'unu ise predict(tahmin) işlemi için kullanarak algoritma modellerimizi test ettik. Bu testler sonucunda modellerimizin, veri setimiz üzerindeki başarı ve hata oranlarını Şekil \ref{fig:08}'deki grafiğe döktük.
+
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_08.png}&
+			\includegraphics[scale=0.15]{pictures/pic_08.png}&
 		\end{tabular}
 	\end{center}
-	\caption{K-Nearest Neighbor Hata Matrisi}
+	\caption{Tüm Algoritmaların Doğruluk \& MSE Oranları}
 	\label{fig:08}
 \end{figure}
 
+\quad Kırmızı şarap kalitesinin tahmin edilebilmesi için, "Red Wine Quality"\cite{4} isimli veri seti üzerinden Bagg, DT, KNN, LG, NB, RF ve SVM sınıflandırıcıları kullanılmıştır. Bu algoritmaların $acc$, $MSE$ ve $AUC$ değerleri, Tablo \ref{tbl:01}'de verilmiştir.
+
+\begin{table}[h]
+	\centering
+	\small
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+					& \textbf{acc}	& \textbf{MSE}	& \textbf{AUC}	\\ \hline
+		\textbf{Bagg}	& 0.78		& 0.21		& 0.780		\\ \hline
+		\textbf{DT}		& 0.76		& 0.23 		& 0.761		\\ \hline
+		\textbf{KNN}	& 0.62		& 0.37 		& 0.629		\\ \hline
+		\textbf{LG}		& 0.73		& 0.26		& 0.736		\\ \hline
+		\textbf{NB}		& 0.74		& 0.25		& 0.743		\\ \hline
+		\textbf{RF}		& \textbf{0.80}	& \textbf{0.19}	& \textbf{0.799}	\\ \hline
+		\textbf{SVM}	& 0.69		& 0.30		& 0.691		\\ \hline
+	\end{tabular}
+	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textit{acc, MSE ve AUC} ölçütlerinin ortalama değerleri}
+	\label{tbl:01}
+\end{table}
+
+\quad Tablo \ref{tbl:01} incelendiği zaman, en yüksek doğruluk değerine $(acc)$ sahip olan algoritmanın Random Forest $(0.80)$ olduğunu görüyoruz. Ardından bunu takip eden algoritma ise $0.78$ doğruluk oranı ile Bagging Classifier oluyor. Üçüncü sırada ise $0.76$ doğruluk oranıyla Decision Tree algoritması yer alıyor. Geri kalan algoritmaların $acc$ değerleri de Tablo \ref{tbl:01}'de görülmektedir.
+
+\quad $MSE$ (mean squared error/ortalama kare hatası) değerleri için Tablo \ref{tbl:01} incelendiği zaman, en düşük $MSE$ değerine sahip olan algoritmanın Random Forest $(0.19)$ olduğunu görüyoruz. En yüksek $MSE$ değerinin ise $0.37$ oranıyla K-Nearest Neighboor algoritmasına ait olduğunu görüyoruz.
+
+\pagebreak
+
+\subsection{\textbf{Tüm Algoritmalara Ait ROC Eğrisi Grafiği}}
+
+\quad Makine öğrenmesinde performans ölçümünde ROC eğrisinden de yararlanırız. Bu eğrilerin $AUC$(doğruluk) değerleri de mevcuttur ancak algoritmanın tahmin doğruluk skoruyla $(acc)$ karıştırılmamalıdır\cite{22}. Elimizdeki algoritmaların ROC eğrilerini Şekil \ref{fig:16}'da verdik. Eğrilerin doğruluk oranları da Tablo \ref{tbl:01}'de belirtilmiştir.
+
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_09.png}&
+			\includegraphics[scale=0.575]{pictures/pic_16.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Support Vector Machines Hata Matrisi}
-	\label{fig:09}
+	\caption{Tüm Algoritmaların ROC Eğrileri ve AUC Değerleri}
+	\label{fig:16}
 \end{figure}
 
+\subsection{\textbf{Confusion Matrix (Hata Matrisi)}}
+
+\quad Tablo \ref{tbl:01}'de en yüksek doğruluk $(acc)$ değerine $(0.80)$ sahip olan Random Forest algoritması $0.19$ değeri ile en düşük hata oranına sahiptir. Diğer algoritmalara baktığımız zaman elde edilen doğruluk $(acc)$ ve hata $(MSE)$ değerleri arasında ters orantı vardır. Yani $acc$ değerimiz ne kadar yüksek olursa $MSE$ değerimiz de o kadar düşük olmaktadır.
+\begin{itemize}
+\item $acc + MSE = 1$
+\end{itemize}
+
+
+
+\begin{figure}[!h]
+	\centering
+	\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.39]{pictures/pic_09.png}&
+		\end{tabular}
+	\end{center}
+	\caption{K-Nearest Neighbor Hata Matrisi}
+	\label{fig:09}
+\end{figure}
+\newpage
 \begin{figure}[!h]
 	\centering
 	\begin{center}
@@ -343,10 +395,10 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.4]{pictures/pic_10.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Logistic Regression Hata Matrisi}
+	\caption{Support Vector Machines Hata Matrisi}
 	\label{fig:10}
 \end{figure}
-\pagebreak
+
 \begin{figure}[!h]
 	\centering
 	\begin{center}
@@ -354,7 +406,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.4]{pictures/pic_11.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Naive Bayes Hata Matrisi}
+	\caption{Logistic Regression Hata Matrisi}
 	\label{fig:11}
 \end{figure}
 
@@ -365,7 +417,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.4]{pictures/pic_12.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Decision Tree Hata Matrisi}
+	\caption{Naive Bayes Hata Matrisi}
 	\label{fig:12}
 \end{figure}
 
@@ -376,10 +428,10 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.4]{pictures/pic_13.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Bagging Hata Matrisi}
+	\caption{Decision Tree Hata Matrisi}
 	\label{fig:13}
 \end{figure}
-\pagebreak
+
 \begin{figure}[!h]
 	\centering
 	\begin{center}
@@ -387,51 +439,27 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.4]{pictures/pic_14.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Random Forest Tree Hata Matrisi}
+	\caption{Bagging Hata Matrisi}
 	\label{fig:14}
 \end{figure}
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|l|c|c|c|c|}
-		\hline
-					& \textbf{acc}	& \textbf{MSE}	& \textbf{AUC}	\\ \hline
-		\textbf{Bagg}	& 0.78		& 0.21		& 0.780		\\ \hline
-		\textbf{DT}		& 0.76		& 0.23 		& 0.761		\\ \hline
-		\textbf{KNN}	& 0.62		& 0.37 		& 0.629		\\ \hline
-		\textbf{LG}		& 0.76		& 0.26		& 0.736		\\ \hline
-		\textbf{NB}		& 0.74		& 0.25		& 0.743		\\ \hline
-		\textbf{RF}		& \textbf{0.80}	& \textbf{0.19}	& \textbf{0.799}	\\ \hline
-		\textbf{SVM}	& 0.69		& 0.30		& 0.691		\\ \hline
-	\end{tabular}
-	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textit{acc, MSE ve AUC} ölçütlerinin ortalama değerleri}
-	\label{tbl:01}
-\end{table}
-
-\quad 
-
 \pagebreak
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_15.png}&
+			\includegraphics[scale=0.4]{pictures/pic_15.png}&
 		\end{tabular}
 	\end{center}
-	\caption{K-Nearest Neighbor Hata Matrisi}
+	\caption{Random Forest Tree Hata Matrisi}
 	\label{fig:15}
 \end{figure}
+\pagebreak
 
-\begin{figure}[!h]
-	\centering
-	\begin{center}
-		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_16.png}&
-		\end{tabular}
-	\end{center}
-	\caption{Support Vector Machines Hata Matrisi}
-	\label{fig:16}
-\end{figure}
+
+
+\newpage
+\subsection{\textbf{Cross-Validation (Çapraz Doğrulama)}}
+\quad Sınıflandırma algoritmalarımızı bir kez eğittiğimiz zaman elde ettiğimiz verileri Tablo \ref{tbl:01}'de belirttik. Elimizdeki  Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarının üzerinde, \textbf{10 Kat Çapraz Doğrulama} yöntemini kullanarak 30 farklı koşma işlemi gerçekleştirdik. Bu koşma işlemlerinin tamamı rastgele ve birbirinden bağımsız olduğu için, farklı durumlarda algoritmaların nasıl çalıştığını da daha iyi anlamış olduk.
 
 \begin{figure}[!h]
 	\centering
@@ -440,7 +468,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.2]{pictures/pic_17.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Logistic Regression Hata Matrisi}
+	\caption{K-Nearest Neighbor Cross-Validation}
 	\label{fig:17}
 \end{figure}
 
@@ -451,7 +479,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.2]{pictures/pic_18.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Naive Bayes Hata Matrisi}
+	\caption{Support Vector Machines Cross-Validation}
 	\label{fig:18}
 \end{figure}
 
@@ -462,7 +490,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 			\includegraphics[scale=0.2]{pictures/pic_19.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Decision Tree Hata Matrisi}
+	\caption{Logistic Regression Cross-Validation}
 	\label{fig:19}
 \end{figure}
 
@@ -470,10 +498,10 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_20.png}&
+			\includegraphics[scale=0.18]{pictures/pic_20.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Bagging Hata Matrisi}
+	\caption{Naive Bayes Cross-Validation}
 	\label{fig:20}
 \end{figure}
 
@@ -481,101 +509,84 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_21.png}&
+			\includegraphics[scale=0.18]{pictures/pic_21.png}&
 		\end{tabular}
 	\end{center}
-	\caption{Random Forest Tree Hata Matrisi}
+	\caption{Decision Tree Cross-Validation}
 	\label{fig:21}
 \end{figure}
 
-
-\pagebreak
-\newpage
-\subsection{\textbf{Tüm Algoritmalara Ait Sonuçlar \& ROC Eğrisi Grafiği}}
-\quad Belirlediğimiz algoritmaları çalıştırdık ve sonuçlarını aldık. Bu sonuçları görsel olarak Şekil \ref{fig:22}'de belirttik. Sonuçlar liste olarak:
-
-\textbf{Nearest Neighbor Classification = Kırmızı}
-\begin{itemize}
-\item \quad Doğruluk: 0.62
-\item \quad MSE: 0.37
-\end{itemize}
-
-\textbf{C-Support Vector Classification = Gri}
-\begin{itemize}
-\item \quad Doğruluk: 0.69
-\item \quad MSE: 0.30
-\end{itemize}
-
-\textbf{Logistic Regression = Mavi}
-\begin{itemize}
-\item \quad Doğruluk: 0.73
-\item \quad MSE: 0.26
-\end{itemize}
-
-\textbf{Gaussian Naive Bayes = Turuncu}
-\begin{itemize}
-\item \quad Doğruluk: 0.74
-\item \quad MSE: 0.25
-\end{itemize}
-
-\textbf{Decision Tree Classifier = Mor}
-\begin{itemize}
-\item \quad Doğruluk: 0.76
-\item \quad MSE: 0.23
-\end{itemize}
-
-\textbf{Bagging Classifier = Sarı}
-\begin{itemize}
-\item \quad Doğruluk: 0.78
-\item \quad MSE: 0.21
-\end{itemize}
-
-\textbf{RandomForestClassifier = Pembe}
-\begin{itemize}
-\item \quad Doğruluk: 0.80
-\item \quad MSE: 0.19
-\end{itemize}
-
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.15]{pictures/pic_22.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.18]{pictures/pic_22.png}&
+		\end{tabular}
 	\end{center}
-	\caption{Tüm Algoritmaların Doğruluk \& MSE Oranları}%
+	\caption{Bagging Cross-Validation}
 	\label{fig:22}
 \end{figure}
-\pagebreak
-
-\quad Makine öğrenmesinde performans ölçümünde ROC eğrisinden yararlanırız. Bu eğrilerin AUC(doğruluk) değerleri de mevcuttur ancak algoritmanın tahmin doğruluk skoruyla karıştırılmamalıdır\cite{22}. Elimizdeki algoritmaların ROC eğrilerini Şekil \ref{fig:23}'de belirttik. Eğrilerin doğruluk oranları da listedeki gibidir:
-\begin{itemize}
-\item \textbf{Nearest Neighbor Classification}: 0.62
-\item \textbf{C-Support Vector Classification}: 0.69
-\item \textbf{Logistic Regression}: 0.73
-\item \textbf{Gaussian Naive Bayes}: 0.74
-\item \textbf{Decision Tree Classifier}: 0.76
-\item \textbf{Bagging Classifier}: 0.78
-\item \textbf{RandomForestClassifier}: 0.79
-\end{itemize}
 
 \begin{figure}[!h]
-	\centering%
-	%\scriptsize
+	\centering
 	\begin{center}
-		\begin{tabular}{cc}%
-			\includegraphics[scale=0.6]{pictures/pic_23.png}&%
-		\end{tabular}%
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.18]{pictures/pic_23.png}&
+		\end{tabular}
 	\end{center}
-	\caption{Tüm Algoritmaların ROC Eğrileri ve AUC Değerleri}%
+	\caption{Random Forest Tree Cross-Validation}
 	\label{fig:23}
 \end{figure}
+\pagebreak
 
-\quad Kullandığımız algoritmalardan en başarılı olan Random Forest Tree algoritması oldu. \%80 lik doğruluk oranıyla diğer algoritmaları geride bıraktı. Ortalama hata karesi değeri diğer algoritmalara göre daha düşük (0.19) çıktı. En düşük başarıya sahip olan algoritmamız ise \%62'lik başarı oranıyla K-Nearest Neighbor algoritması oldu. Ortalama hata karesi değerini de Random Forest Tree'ninkine göre yüksek kalan 0.37 olarak elde ettik. Algoritmaların bu değerlerini Şekil \ref{fig:22}'de belirttik. Diğer algoritmalar ise birbirine oldukça yakın değerler verdi. Bagging algoritması ise \%78 doğruluk oranı verirken 0.21 MSE değeriyle, en verimli ikinci algoritma oldu. Kullandığımız en verimli üçüncü algoritma ise \%76 doğruluk değeriyle Decision Tree algoritması oldu. MSE değeri olarak da 0.23 verdi. Decision Tree'nin ardından gelen algoritma ise Naive Bayes algoritması oldu. \%74 doğruluk değerine ve 0.25 MSE değerine sahip bir şekilde Logistic Regression'u geride bıraktı. Logistic Regression ise \%73 doğruluk oranıyla birlikte 0.26 MSE değerini alarak en verimli beşinci algoritma oldu. Elimizdeki verimlilik düzeyi en düşük olan K-Nearest Neighbor algoritması ile Logistic Regression arasında kalan tek algoritma ise C-Support Vector algoritması. Bu algoritmanın doğruluk değeri \%69'ken MSE değeri de 0.3 olarak elimize geçti.
+\quad  Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarını \textbf{10 Kat Çapraz Doğrulama} yöntemi kullanarak eğittik, çıkan sonuçları ise Şekil \ref{fig:17}, \ref{fig:18}, \ref{fig:19}, \ref{fig:20}, \ref{fig:21}, \ref{fig:22} ve \ref{fig:23}'te görselleştirdik. Bu yöntem sonucunda;
+\begin{itemize}
+\item \textbf{Çalışma Sayısı}$(30) * $\textbf{Algoritma Sayısı}$(7) = \textbf{210}$
+\end{itemize}
+adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:02}'de belirttik.
 
+\begin{table}[h]
+	\centering
+	\normalsize
+	\begin{tabular}{|l|c|c|c|c|}
+		\hline
+					& \textbf{acc}	& \textbf{St.Dev.}		\\ \hline
+		\textbf{Bagg}	& 0.6986		& 0.0955			\\ \hline
+		\textbf{DT}		& 0.6879		& \textbf{0.0903}		\\ \hline
+		\textbf{KNN}	& 0.6289		& 0.1050 			\\ \hline
+		\textbf{LG}		& 0.7348		& 0.0932			\\ \hline
+		\textbf{NB}		& 0.7222		& 0.1130			\\ \hline
+		\textbf{RF}		& \textbf{0.7448}	& 0.1085			\\ \hline
+		\textbf{SVM}	& 0.7179		& 0.1032			\\ \hline
+	\end{tabular}
+	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textbf{Cross-Validation (10 Kat Çapraz Doğrulama)} sonuçlarının ortalama değerleri}
+	\label{tbl:02}
+\end{table}
+
+\quad Tablo \ref{tbl:02}'deki değerlere baktığımız zaman en yüksek doğruluk ortalamasına sahip algoritmanın Random Forest $(0.7448)$ ve en düşük standart devinasyon ortalamasına sahip algoritmanın da Decision Tree $(0.0903)$ olduğunu görüyoruz.
+
+\quad Logistic Regression algoritmasının $acc$ değerlerine baktığımız zaman diğer algoritmaların ortalamasının üstünde kaldığını ve $StandardDevination$ değerinin de diğer algoritmaların ortalamasının altında kaldığını görüyoruz. Bu senaryoda en verimli algoritmalardan birinin de Logistic Regression olduğunu söyleyebiliriz.
+
+%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \section{\textbf{SONUÇ}}
 \quad Bu projede kullanılan veri seti sayesinde kırmızı şarabın kalitesinin, ortalamanın üstünde veya altında olduğunu tahmin etmeye çalıştık. Bunu yapmak için, önceden belirlediğimiz algoritmaları kullandık ve sonuçlarını karşılaştırdık. Her algoritmada farklı doğruluk değerleri elde ettik. Bazı algoritmalar bu veri seti için daha yeterli olurken bazıları daha yetersiz kaldı. Algoritmaların veri setiyle verimli çalışabilmesi için, veri setinin detaylandırılması gerekir. Bunu da doğru özniteliklerin eklenmesi veya çıkartılması, örnek sayısının çoğaltılmasıyla sağlayabiliriz. Bu sayede kalite ölçümünü daha efektif hale getirebiliriz.
+
+\begin{figure}[!h]
+	\centering
+	\begin{center}
+		\begin{tabular}{cc}
+			\includegraphics[scale=0.35]{pictures/pic_24.png}&
+		\end{tabular}
+	\end{center}
+	\caption{Tüm Algoritmaların Cross-Validation Sonuçlarının 3D Grafiği}
+	\label{fig:24}
+\end{figure}
+
+\quad $X-ekseni$'ne baktığımız zaman algoritmalarımızın isimlerini, $Y-ekseni$'ne baktığımızda ise bu algoritmaların çalışma sayılarını görüyoruz. Elimizdeki $X-Y$ şeklindeki 2D ortama 3. bir boyut ekleyerek, bu algoritmaların çalışma sonuçlarını da $Z-ekseni$'ne eklemiş oluyoruz.
+
+\quad Elimizdeki bu 3D grafiği incelersek, en yüksek ortalamaya sahip algoritmanın Random Forest olduğunu anlayabiliriz. Çalışma sonuçlarını küçükten büyüğe sıralayarak bir rampa oluşmasını sağladık. Bu sayede rampanın yüksek kısmında kalan algoritmalar yüksek verimliliğer sahip algoritmalar oldu.
 
 %%%%%%%%%%%%%%%%%%%%
 \newpage
