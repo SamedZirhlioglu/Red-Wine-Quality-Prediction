@@ -18,6 +18,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import cross_val_score
 from mpl_toolkits.mplot3d import axes3d
 import statistics
+from scipy.stats import zscore
 
 TEST_SIZE = 0.3
 
@@ -86,7 +87,6 @@ def plot_SVM(data, row_1, row_2, model, title):
     plt.show()
 
 def plot_confusion_matrix(Ytest, Ypred, label):
-    return
     confusionMatrix = confusion_matrix(Ytest, Ypred)
     f, ax = plt.subplots(figsize=(5, 5))
     
@@ -114,7 +114,6 @@ def log_MSEs(test, preds, labels):
 
 def cross_valid_graph(model, X, y, model_name, color='gray', cv=30):
     scores = cross_val_score(model, X, y, cv=cv)
-    return scores
     fig, axes = plt.subplots(figsize=(35,10), dpi=100)
     sns.set(font_scale=1.5)
     plt.bar(range(1, len(scores) + 1), height=scores, color=color)
@@ -144,7 +143,7 @@ sns.heatmap(data.corr(),annot=True, cmap='Blues')
 sns.pairplot(data, diag_kind='kde')
 plt.show()
 
-X=data.drop(['quality'],axis=1)
+X=zscore(data.drop(['quality'],axis=1))
 y=data['quality']
 #X=data.iloc[:,0:-1]
 #y=data.iloc[:,-1] 
@@ -170,7 +169,7 @@ preds.append(Ypred_knn)
 
 plot_confusion_matrix(y_test, Ypred_knn, algorithms[0])
 scores = [[algorithms[0], knnModel.score(X_test, y_test)]]
-### plot_ROC(y_test, Ypred_knn, algorithms[0])
+# plot_ROC(y_test, Ypred_knn, algorithms[0])
 
 # SUPPORT VECTOR CLASSIFICATION
 svcModel = SVC(C=10, random_state=42)
@@ -180,8 +179,8 @@ preds.append(Ypred_svc)
 
 scores.append([algorithms[1], svcModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_svc, algorithms[1])
-#plot_SVM(data, 0, 2, svcModel, algorithms[1])
-### plot_ROC(y_test, Ypred_svc, algorithms[1])
+plot_SVM(data, 0, 2, svcModel, algorithms[1])
+# plot_ROC(y_test, Ypred_svc, algorithms[1])
 
 # LOGISTIC REGRESSION
 logisticModel = LogisticRegression(C=10, random_state=42)
@@ -191,7 +190,7 @@ preds.append(Ypred_logistic)
 
 scores.append([algorithms[2], logisticModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_logistic, algorithms[2])
-### plot_ROC(y_test, Ypred_logistic, algorithms[2])
+# plot_ROC(y_test, Ypred_logistic, algorithms[2])
 
 # NAIVE BAYES CLASSIFIER
 naiveBayesModel = GaussianNB()
@@ -201,7 +200,7 @@ preds.append(Ypred_naiveBayes)
 
 scores.append([algorithms[3], naiveBayesModel.score(X_test,y_test)])
 plot_confusion_matrix(y_test, Ypred_naiveBayes, algorithms[3])
-### plot_ROC(y_test, Ypred_naiveBayes, algorithms[3])
+# plot_ROC(y_test, Ypred_naiveBayes, algorithms[3])
 
 # DECISION TREE CLASSIFIER
 decisionTreeModel = DecisionTreeClassifier(random_state=42)
@@ -211,7 +210,7 @@ preds.append(Ypred_decisionTree)
 
 scores.append([algorithms[4], decisionTreeModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_decisionTree, algorithms[4])
-### plot_ROC(y_test, Ypred_decisionTree, algorithms[4])
+# plot_ROC(y_test, Ypred_decisionTree, algorithms[4])
 
 # BaggingClassifier CLASSIFIER
 baggingModel = BaggingClassifier(base_estimator=decisionTreeModel, n_estimators=10, random_state=17)
@@ -221,7 +220,7 @@ preds.append(Ypred_bagging)
 
 scores.append([algorithms[5], baggingModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_bagging, algorithms[5])
-### plot_ROC(y_test, Ypred_bagging, algorithms[5])
+# plot_ROC(y_test, Ypred_bagging, algorithms[5])
 
 # RANDOM FOREST TREE CLASSIFIER
 randomForestTreeModel = RandomForestClassifier(random_state=42)
@@ -239,7 +238,7 @@ cross_scores.append(cross_valid_graph(knnModel, X, y, algorithms[0], 'red'))
 
 scores.append([algorithms[6], randomForestTreeModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_randomForestTree, algorithms[6])
-### plot_ROC(y_test, Ypred_randomForestTree, algorithms[6])
+# plot_ROC(y_test, Ypred_randomForestTree, algorithms[6])
 
 plot_ROCs(y_test, preds, algorithms)
 sns.set(font_scale=1.0)
@@ -266,14 +265,18 @@ for i in range(len(cross_scores)):
     cross_scores[i].sort()
     cross_means.append(statistics.mean(cross_scores[i]))
 
-
-
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 
-
-
-X = ["knn","decision tree","bagg", "svm", "naive","log","random"] #algoritma adı
+X = [
+    "Nearest Neighbor Classification",
+    "Decision Tree Classifier",
+    "Bagging Classifier",
+    "C-Support Vector Classification",
+    "Gaussian Naive Bayes",
+    "Logistic Regression",
+    "RandomForestClassifier"
+]
 
 x = np.array([[i] * 30 for i in range(1, 8)]).ravel() #algoritma çalışma sayısı
 y = np.array([i for i in range(1, 31)] * len(X))
