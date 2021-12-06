@@ -321,7 +321,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.15]{pictures/pic_08.png}&
+			\includegraphics[scale=0.325]{pictures/pic_08.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Tüm Algoritmaların Doğruluk \& MSE Oranları}
@@ -336,21 +336,21 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
 					& \textbf{acc}	& \textbf{MSE}	& \textbf{AUC}	\\ \hline
-		\textbf{Bagg}	& 0.78		& 0.21		& 0.780		\\ \hline
-		\textbf{DT}		& 0.76		& 0.23 		& 0.761		\\ \hline
-		\textbf{KNN}	& 0.62		& 0.37 		& 0.629		\\ \hline
-		\textbf{LG}		& 0.73		& 0.26		& 0.736		\\ \hline
-		\textbf{NB}		& 0.74		& 0.25		& 0.743		\\ \hline
-		\textbf{RF}		& \textbf{0.80}	& \textbf{0.19}	& \textbf{0.799}	\\ \hline
-		\textbf{SVM}	& 0.69		& 0.30		& 0.691		\\ \hline
+		\textbf{Bagg}	& 0.7833		& 0.2166		& 0.785		\\ \hline
+		\textbf{DT}		& 0.7645		& 0.2354 		& 0.760		\\ \hline
+		\textbf{KNN}	& 0.7062		& 0.2937 		& 0.706		\\ \hline
+		\textbf{LG}		& 0.7354		& 0.2645		& 0.736		\\ \hline
+		\textbf{NB}		& 0.7416		& 0.2583		& 0.736		\\ \hline
+		\textbf{RF}		& \textbf{0.8000}	& \textbf{0.2000}	& \textbf{0.796}	\\ \hline
+		\textbf{SVM}	& 0.7583		& 0.2416		& 0.758		\\ \hline
 	\end{tabular}
 	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textit{acc, MSE ve AUC} ölçütlerinin ortalama değerleri}
 	\label{tbl:01}
 \end{table}
 
-\quad Tablo \ref{tbl:01} incelendiği zaman, en yüksek doğruluk değerine $(acc)$ sahip olan algoritmanın Random Forest $(0.80)$ olduğunu görüyoruz. Ardından bunu takip eden algoritma ise $0.78$ doğruluk oranı ile Bagging Classifier oluyor. Üçüncü sırada ise $0.76$ doğruluk oranıyla Decision Tree algoritması yer alıyor. Geri kalan algoritmaların $acc$ değerleri de Tablo \ref{tbl:01}'de görülmektedir.
+\quad Tablo \ref{tbl:01} incelendiği zaman, en yüksek doğruluk değerine $(acc)$ sahip olan algoritmanın Random Forest $(0.80)$ olduğunu görüyoruz. Ardından bunu takip eden algoritma ise $0.7833$ doğruluk oranı ile Bagging Classifier oluyor. Üçüncü sırada ise $0.7645$ doğruluk oranlarıyla Decision Tree yer alıyor. Geri kalan algoritmaların $acc$ değerleri de Tablo \ref{tbl:01}'de görülmektedir.
 
-\quad $MSE$ (mean squared error/ortalama kare hatası) değerleri için Tablo \ref{tbl:01} incelendiği zaman, en düşük $MSE$ değerine sahip olan algoritmanın Random Forest $(0.19)$ olduğunu görüyoruz. En yüksek $MSE$ değerinin ise $0.37$ oranıyla K-Nearest Neighboor algoritmasına ait olduğunu görüyoruz.
+\quad $MSE$ (mean squared error/ortalama kare hatası) değerleri için Tablo \ref{tbl:01} incelendiği zaman, en düşük $MSE$ değerine sahip olan algoritmanın Random Forest $(0.20)$ olduğunu görüyoruz. En yüksek $MSE$ değerinin ise $0.2937$ oranıyla K-Nearest Neighbor algoritmasına ait olduğunu görüyoruz.
 
 \pagebreak
 
@@ -362,7 +362,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.575]{pictures/pic_09.png}&
+			\includegraphics[scale=0.42]{pictures/pic_09.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Tüm Algoritmaların ROC Eğrileri ve AUC Değerleri}
@@ -371,29 +371,28 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 
 \subsection{\textbf{Confusion Matrix (Hata Matrisi)}}
 
-\quad Tablo \ref{tbl:01}'de en yüksek doğruluk $(acc)$ değerine $(0.80)$ sahip olan Random Forest algoritması $0.19$ değeri ile en düşük hata oranına sahiptir. Diğer algoritmalara baktığımız zaman elde edilen doğruluk $(acc)$ ve hata $(MSE)$ değerleri arasında ters orantı vardır. Yani $acc$ değerimiz ne kadar yüksek olursa $MSE$ değerimiz de o kadar düşük olmaktadır.
+\quad Tablo \ref{tbl:01}'de en yüksek doğruluk $(acc)$ değerine $(0.80)$ sahip olan Random Forest algoritması, yine aynı şekilde en düşük $(0.20)$ hata oranına $(MSE)$ da sahiptir. Diğer algoritmalara baktığımız zaman elde edilen doğruluk $(acc)$ ve hata $(MSE)$ değerleri arasında ters orantı vardır. Yani $acc$ değerimiz ne kadar yüksek olursa $MSE$ değerimiz de o kadar düşük olmaktadır.
+
 \begin{itemize}
 \item $acc + MSE = 1$
 \end{itemize}
-
-
 
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.39]{pictures/pic_10.png}&
+			\includegraphics[scale=0.45]{pictures/pic_10.png}&
 		\end{tabular}
 	\end{center}
 	\caption{K-Nearest Neighbor Hata Matrisi}
 	\label{fig:10}
 \end{figure}
-\newpage
+\pagebreak
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_11.png}&
+			\includegraphics[scale=0.45]{pictures/pic_11.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Support Vector Machines Hata Matrisi}
@@ -404,7 +403,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_12.png}&
+			\includegraphics[scale=0.45]{pictures/pic_12.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Logistic Regression Hata Matrisi}
@@ -415,7 +414,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_13.png}&
+			\includegraphics[scale=0.45]{pictures/pic_13.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Naive Bayes Hata Matrisi}
@@ -426,7 +425,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_14.png}&
+			\includegraphics[scale=0.45]{pictures/pic_14.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Decision Tree Hata Matrisi}
@@ -437,7 +436,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_15.png}&
+			\includegraphics[scale=0.45]{pictures/pic_15.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Bagging Hata Matrisi}
@@ -448,7 +447,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.4]{pictures/pic_16.png}&
+			\includegraphics[scale=0.45]{pictures/pic_16.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Random Forest Tree Hata Matrisi}
@@ -466,7 +465,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_17.png}&
+			\includegraphics[scale=0.225]{pictures/pic_17.png}&
 		\end{tabular}
 	\end{center}
 	\caption{K-Nearest Neighbor Cross-Validation}
@@ -477,7 +476,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_18.png}&
+			\includegraphics[scale=0.225]{pictures/pic_18.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Support Vector Machines Cross-Validation}
@@ -488,18 +487,18 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.2]{pictures/pic_19.png}&
+			\includegraphics[scale=0.225]{pictures/pic_19.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Logistic Regression Cross-Validation}
 	\label{fig:19}
 \end{figure}
-
+\pagebreak
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.18]{pictures/pic_20.png}&
+			\includegraphics[scale=0.225]{pictures/pic_20.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Naive Bayes Cross-Validation}
@@ -510,7 +509,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.18]{pictures/pic_21.png}&
+			\includegraphics[scale=0.225]{pictures/pic_21.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Decision Tree Cross-Validation}
@@ -521,24 +520,23 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.18]{pictures/pic_22.png}&
+			\includegraphics[scale=0.225]{pictures/pic_22.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Bagging Cross-Validation}
 	\label{fig:22}
 \end{figure}
-
+\pagebreak
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.18]{pictures/pic_23.png}&
+			\includegraphics[scale=0.225]{pictures/pic_23.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Random Forest Tree Cross-Validation}
 	\label{fig:23}
 \end{figure}
-\pagebreak
 
 \quad  Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarını \textbf{10 Kat Çapraz Doğrulama} yöntemi kullanarak eğittik, çıkan sonuçları ise Şekil \ref{fig:17}, \ref{fig:18}, \ref{fig:19}, \ref{fig:20}, \ref{fig:21}, \ref{fig:22} ve \ref{fig:23}'te görselleştirdik. Bu yöntem sonucunda;
 \begin{itemize}
@@ -551,22 +549,22 @@ adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:
 	\normalsize
 	\begin{tabular}{|l|c|c|c|c|}
 		\hline
-					& \textbf{acc}	& \textbf{St.Dev.}		\\ \hline
-		\textbf{Bagg}	& 0.6986		& 0.0955			\\ \hline
-		\textbf{DT}		& 0.6879		& \textbf{0.0903}		\\ \hline
-		\textbf{KNN}	& 0.6289		& 0.1050 			\\ \hline
-		\textbf{LG}		& 0.7348		& 0.0932			\\ \hline
-		\textbf{NB}		& 0.7222		& 0.1130			\\ \hline
-		\textbf{RF}		& \textbf{0.7448}	& 0.1085			\\ \hline
-		\textbf{SVM}	& 0.7179		& 0.1032			\\ \hline
+					& \textbf{acc}		& \textbf{St.Dev.}		\\ \hline
+		\textbf{Bagg}	& 0.7004			& 0.0927			\\ \hline
+		\textbf{DT}		& 0.6835			& \textbf{0.0840}		\\ \hline
+		\textbf{KNN}	& 0.6928			& 0.0981 			\\ \hline
+		\textbf{LG}		& 0.7336			& 0.0969			\\ \hline
+		\textbf{NB}		& 0.7273			& 0.1139			\\ \hline
+		\textbf{RF}		& \textbf{0.7448}		& 0.1090			\\ \hline
+		\textbf{SVM}	& 0.7291			& 0.0957			\\ \hline
 	\end{tabular}
 	\caption{Bagging, DT, KNN, LG, NB, RF ve SVM sınıflandırıcılarının \textbf{Cross-Validation (10 Kat Çapraz Doğrulama)} sonuçlarının ortalama değerleri}
 	\label{tbl:02}
 \end{table}
 
-\quad Tablo \ref{tbl:02}'deki değerlere baktığımız zaman en yüksek doğruluk ortalamasına sahip algoritmanın Random Forest $(0.7448)$ ve en düşük standart devinasyon ortalamasına sahip algoritmanın da Decision Tree $(0.0903)$ olduğunu görüyoruz.
+\quad Tablo \ref{tbl:02}'deki değerlere baktığımız zaman en yüksek doğruluk ortalamasına sahip algoritmanın Random Forest $(0.7448)$ ve en düşük standart devinasyon ortalamasına sahip algoritmanın da Decision Tree $(0.0840)$ olduğunu görüyoruz.
 
-\quad Logistic Regression algoritmasının $acc$ değerlerine baktığımız zaman diğer algoritmaların ortalamasının üstünde kaldığını ve $StandardDevination$ değerinin de diğer algoritmaların ortalamasının altında kaldığını görüyoruz. Bu senaryoda en verimli algoritmalardan birinin de Logistic Regression olduğunu söyleyebiliriz.
+\quad Bagging algoritmasının $acc$ değerlerine baktığımız zaman diğer algoritmaların ortalamasının üstünde kaldığını ve $StandardDevination$ değerinin de diğer algoritmaların ortalamasının altında kaldığını görüyoruz. Bu senaryoda en verimli algoritmalardan birinin de Bagging olduğunu söyleyebiliriz.
 
 %%%%%%%%%%%%%%%%%%%%
 
@@ -578,7 +576,7 @@ adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.35]{pictures/pic_24.png}&
+			\includegraphics[scale=0.375]{pictures/pic_24.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Tüm Algoritmaların Cross-Validation Sonuçlarının 3D Grafiği}
@@ -590,8 +588,9 @@ adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:
 \quad Elimizdeki bu 3D grafiği incelersek, en yüksek ortalamaya sahip algoritmanın Random Forest olduğunu anlayabiliriz. Çalışma sonuçlarını küçükten büyüğe sıralayarak bir rampa oluşmasını sağladık. Bu sayede rampanın yüksek kısmında kalan algoritmalar yüksek verimliliğer sahip algoritmalar oldu.
 
 %%%%%%%%%%%%%%%%%%%%
+
 \newpage
-\begin{thebibliography}{6}
+\begin{thebibliography}{22}
 
 \bibitem{1} 
 DergiPark - Şarap Üretimi ve Kalite

@@ -106,7 +106,7 @@ def log_MSEs(test, preds, labels):
     mse = []
     for i in range(len(preds)):
         mse.append(mean_squared_error(test, preds[i]))
-        #print(labels[i] + " MSE: " + str(mse))
+        print(labels[i] + " MSE: " + str(mse))
     fig, axes = plt.subplots(figsize=(35,10), dpi=100)
     plt.bar(labels, height=mse, color=['red', 'gray', 'blue', 'orange', 'purple', 'yellow', 'pink'])
     plt.title("MSE Values")
@@ -123,7 +123,7 @@ def cross_valid_graph(model, X, y, model_name, color='gray', cv=30):
 
 
 # Dataseti tanımladık
-data = pd.read_csv(r"E:\finished_projects\artificial_intelligence\Red-Wine-Quality-Prediction\Proje\winequality-red.csv")
+data = pd.read_csv(r"C:\Users\SAMED\Desktop\Red-Wine-Quality-Prediction-main\Proje\winequality-red.csv")
 data.corr()['quality'].sort_values(ascending=False)
 
 print(data.mean())
@@ -230,15 +230,15 @@ preds.append(Ypred_randomForestTree)
 
 cross_scores.append(cross_valid_graph(randomForestTreeModel, X, y, algorithms[6], 'pink'))
 cross_scores.append(cross_valid_graph(logisticModel, X, y, algorithms[2], 'blue'))
-cross_scores.append(cross_valid_graph(naiveBayesModel, X, y, algorithms[3], 'orange'))
 cross_scores.append(cross_valid_graph(svcModel, X, y, algorithms[1], 'gray'))
+cross_scores.append(cross_valid_graph(naiveBayesModel, X, y, algorithms[3], 'orange'))
 cross_scores.append(cross_valid_graph(baggingModel, X, y, algorithms[5], 'yellow'))
-cross_scores.append(cross_valid_graph(decisionTreeModel, X, y, algorithms[4], 'purple'))
 cross_scores.append(cross_valid_graph(knnModel, X, y, algorithms[0], 'red'))
+cross_scores.append(cross_valid_graph(decisionTreeModel, X, y, algorithms[4], 'purple'))
 
 scores.append([algorithms[6], randomForestTreeModel.score(X_test, y_test)])
 plot_confusion_matrix(y_test, Ypred_randomForestTree, algorithms[6])
-# plot_ROC(y_test, Ypred_randomForestTree, algorithms[6])
+plot_ROC(y_test, Ypred_randomForestTree, algorithms[6])
 
 plot_ROCs(y_test, preds, algorithms)
 sns.set(font_scale=1.0)
@@ -246,6 +246,9 @@ log_MSEs(y_test, preds, algorithms)
 
 a = []
 b = []
+
+for i in range(len(algorithms)):
+    print(algorithms[i] + str(scores[i]))
 
 for i in scores:
     a.append(i[0])
@@ -258,7 +261,7 @@ plt.title('Kırmızı Şarap Kalitesi')
 plt.show()
 
 for cross in cross_scores:
-    print(statistics.mean(cross))
+    print("Cross: " + str(statistics.mean(cross)))
 
 cross_means = []
 for i in range(len(cross_scores)):
