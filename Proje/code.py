@@ -123,7 +123,7 @@ def cross_valid_graph(model, X, y, model_name, color='gray', cv=30):
 
 
 # Dataseti tanımladık
-data = pd.read_csv(r"C:\Users\SAMED\Desktop\Red-Wine-Quality-Prediction-main\Proje\winequality-red.csv")
+data = pd.read_csv(r"E:\finished_projects\artificial_intelligence\Red-Wine-Quality-Prediction\Proje\winequality-red.csv")
 data.corr()['quality'].sort_values(ascending=False)
 
 print(data.mean())
