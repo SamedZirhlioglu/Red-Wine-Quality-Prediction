@@ -295,15 +295,15 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:07}
 \end{figure}
 
-\quad Rastgele Orman Ağacı, kullanıcıdan iki parametre alır: m parametresi en iyi bölünmeyi belirlemek için her düğümde kullanılan değişkenlerin sayısı, N geliştirilecek ağaç sayısı. Öncelikle eğitim verilerinin 2/3'ü kullanılarak önyükleme örnekleri oluşturulur. Geri kalan 1/3'lük kısım (OOB: out of bag) ise hataları test etmek için kullanılır\cite{21}.
+\quad Rastgele Orman Ağacı, kullanıcıdan iki parametre alır: m parametresi en iyi bölünmeyi belirlemek için her düğümde kullanılan değişkenlerin sayısı, N geliştirilecek ağaç sayısı. Öncelikle eğitim verilerinin 2/3'ü kullanılarak önyükleme örnekleri oluşturulur. Hata testi yapma amacıyla da geriye kalan 1/3'lük parça kullanılır. Bu parçaya ise \textbf{OOB (out of bag)} denir\cite{21}.
 
-\quad Her bir düğümde \textbf{m} değişkenleri, tüm değişkenlerin arasından rastgele seçilerek en iyi dal belirlenir. \textbf{M} adet değişkenin kareköküne eşit olarak alınan \textbf{m} değişken, genellikle optimuma en yakın sonucu verir\cite{21}.
+\quad Düğümlerdeki \textbf{m} değerleri, bütün değerlerin içinden rastgele bir şekilde seçilir. Böylece en iyi dal belirlenmiş olur. \textbf{M} adet değişkenin kareköküne eşit olarak alınan \textbf{m} değişken, genellikle optimuma en yakın sonucu verir\cite{21}.
 
 \quad Sınıfların homojenliği $Gini$ indexi hesaplanarak ölçülür. $Gini$ indexi ne kadar düşükse, sınıf da o kadar homojendir. Bir düğümün alt $Gini$ indexi üst $Gini$ indexinden daha az olduğu durumlarda incelenen dal başarılı sayılır\cite{21}. $Gini$ indexinin formülü Eşitlik \ref{eq:07}'de verilmiştir. Formül değişkenlerinin temsil ettiği veriler de aşağıdaki gibidir;
 
 \begin{itemize}
 \item \textbf{T:} Tüm veri seti
-\item \textbf{pj:} Veri setindeki her bir verinin kendinden küçük ve kendünden büyük eleman sayılarına bölümü
+\item \textbf{pj:} Veri kümesinde bulunan her verinin, kendinden küçük ve büyük eleman sayılarına bölümü
 \item \textbf{n:} Seçilen verimiz
 \end{itemize}
 
