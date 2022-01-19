@@ -66,7 +66,7 @@ Predicting Red Wine Quality Using Machine Learning
 \thispagestyle{plain}
 \pagestyle{plain}
 \begin{ozet}
-Şarap, çok eski tarihlerden beri tüketilen, batı toplumlarında mutfakla özdeşleşmiş olan alkollü bir içecektir. Farklı meyvelerle üretilebiliyor olsa da, şarap denince akla ilk gelen meyve üzümdür. Şarap, çok geniş bir skalaya sahiptir. Bu yüzden her şarabın kalite oranı farklıdır. Üzümle üretilen şaraplardan biri de kırmızı şaraptır. Kırmızı şaraba ait bazı özniteliklerin (alkol oranı, pH, klorür vb.) değerleri incelenerek şarabın kalitesi tahmin edilebilir. Bu değerlerin incelenmesi için de belirlediğimiz bazı yapay zeka algoritmalarını (KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağacı, Bagging ve Rastgele Orman Ağacı) kullandık. Kullandığımız algoritmalar genellikle sınıflandırma algoritmalarıdır. Bunun sebebi, şarabı kaliteli veya kalitesiz (0-1) olarak etiketlemek istememizdir.
+Şarap, çok eski tarihlerden beri tüketilen, batı toplumlarında mutfakla özdeşleşmiş olan alkollü bir içecektir. Farklı meyvelerle üretilebiliyor olsa da, şarap denince akla ilk gelen meyve üzümdür. Şarap, çok geniş bir skalaya sahiptir. Bu yüzden her şarabın kalite oranı farklıdır. Üzümle üretilen şarap türlerinden birisi de kırmızı şaraptır. Kırmızı şaraba ait bazı öznitelikler (alkol oranı, pH, klorür vb.) incelenerek şarabın kalitesi tahmin edilebilir. Bu özniteliklerin incelenmesi için de belirlenen yapay zekâ algoritmaları (KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağacı, Bagging ve Rastgele Orman Ağacı) kullanılmıştır. Kullanılan algoritmaların geneli sınıflandırma algoritmalarıdır. Bunun sebebi, şarabın kaliteli veya kalitesiz (0-1) olarak etiketlenmek istenmesidir.
 \end{ozet}
 
 \begin{IEEEanahtar}
@@ -75,24 +75,25 @@ Kırmızı Şarap, Kalite, KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağa
 
 
 \begin{abstract}
-Wine is an alcoholic beverage that has been consumed since time immemorial, identified with cuisine in western societies. Although it can be produced with different fruits, the first fruit that comes to mind when it comes to wine is grapes. Wine has a very Large scale. That is why the quality ratio of each wine is different. One of the wines produced with grapes is red wine. It should be noted that some attributes of red wine (alcohol content, pH, chloride, etc.) the quality of the wine can be estimated by examining its values. In order to examine these values, we used some artificial intelligence algorithms (KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Bagging, and Random Forest Tree) that we also determined. The algorithms we use are usually classification algorithms. This is because we want to label the wine as good quality or poor quality (0-1).
+Wine is an alcoholic beverage that has been consumed since ancient times and has been identified with cuisine in western societies. Although it can be produced with different fruits, the first fruit that comes to mind when talking about wine is grapes. Wine has a very wide scale. Therefore, the quality ratio of each wine is different. One of the types of wine produced with grapes is red wine. The quality of red wine can be estimated by examining some of the attributes (alcohol content, pH, chloride, etc.). Artificial intelligence algorithms (KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Bagging and Random Forest Tree) were used to examine these features. The general algorithms used are classification algorithms. This is because wine is wanted to be labeled as good quality or poor quality (0-1).
 \end{abstract}
 
 \begin{IEEEkeywords}
 Red Wine, Quality, KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Bagging, and Random Forest Tree
 \end{IEEEkeywords}
-
+\pagebreak
 \section{\textbf{GİRİŞ}}
 \quad Şarap, diğer adıyla mey. Parçalanmış veya parçalanmamış üzümün fermente edilmesiyle\cite{1} üretilen, tescillenmiş veya tescillenmemiş, \%9-15 oranda alkole sahip\cite{2} bir içecektir. Tescillenmiş şaraplar, üretildiği coğrafi bölgenin bir işaretini taşır\cite{3}.
 
-\quad Şarap, bilinmeyen tarihlerden beri üretilen ve tüketilen bir içecektir. Elimizdeki bilgilere göre şu an şarabın bilinen doğum yeri Gürcistan’dır, tarihi ise MÖ 6000’lere kadar dayanmaktadır\cite{2}. Şarap, birden fazla çeşide sahiptir. Bunlar; kırmızı, beyaz, rose, blush, likor şarabı vb. şeklindedir\cite{1}. Bu makalede kırmızı şarabı inceleyeceğiz.
+\quad Şarap, bilinmeyen tarihlerden beri üretilen ve tüketilen bir içecektir. Elimizde bulunan bilgilere göre şu an şarabın bilinen doğum yeri Gürcistan’dır, tarihi ise MÖ 6000’lere kadar dayanmaktadır\cite{2}. Şarap, birden fazla çeşide sahiptir. Bunlar; kırmızı, beyaz, rose, blush, likor şarabı vb. şeklindedir\cite{1}. Bu makalede kırmızı şarap incelenecektir.
 
-\quad Şarap üretimi çok fazla emek isteyen, yorucu bir iştir. Gerek ilkel yöntemlerle, gerek de modern teknolojiyle şarap üretmek mümkündür. Şarap üretiminde yer alan bu teknolojinin ilerlemesiyle birlikte, şarap kalitesiyle alakalı kriterler de daha detaylı hale gelmiştir\cite{1}. Bu kriterler ve parametreler(uçucu asitlik, artık şeker miktarı, alkol oranı, pH, klorür vb.) daha net bir şekilde incelenebildiği için şarabın kalitesiyle ilgili ölçümler de daha rahat yapılabilmektedir. Bu makalede de yapay zeka kullanarak kırmızı şarap kalitesini ölçmeye çalışacağız.
+\quad Şarap üretimi çok fazla emek isteyen, yorucu bir iştir. Gerek ilkel yöntemlerle, gerek de modern teknolojiyle şarap üretmek mümkündür. Şarap üretiminde yer alan bu teknolojinin ilerlemesiyle birlikte, şarap kalitesiyle alakalı kriterler de daha detaylı hale gelmiştir\cite{1}. Bu kriterler ve parametreler(uçucu asitlik, artık şeker miktarı, alkol oranı, pH, klorür vb.) daha net bir şekilde incelenebildiği için şarabın kalitesiyle ilgili ölçümler de daha rahat yapılabilmektedir. Bu makalede de yapay zeka kullanarak kırmızı şarap kalitesi ölçülmeye çalışılacaktır.
 
-\quad Kırmızı şarap üzerinde kimyasal ölçümler yapılarak bir takım veriler elde edildi. Bu veriler de Kaggle\cite{4} üzreinde açık kaynak olarak paylaşıldı. Biz de bu veri setini edindik, üzerinde ön işleme yaptık ve üzerine makine öğrenmesi algoritmalarını kurduk. Bu makalemizde de makine öğrenmesi kullanarak kırmızı şarap kalitesini tahmin etmeye çalışacağız.
+\quad Kırmızı şarap üzerinde kimyasal ölçümler yapılarak bir takım veriler elde edildi. Bu veriler Kaggle\cite{4}'da açık kaynak olarak paylaşılmıştır. Bu veri seti edinildi, üzerinde ön işleme yapıldı ve makine öğrenmesi algoritmaları kullanıldı. Bu makalede makine öğrenmesi kullanılarak kırmızı şarap kalitesi tahmin edilmeye çalışıldı.
+
 \newpage
-\quad Bu projede “Red Wine Quality” isimli veri setin\cite{4} Kaggle üzerinden temin ettik. Verinin \%30’unu test için, \%70’ini de eğitim için kullandık. Veri setinde 11 adet öznitelik, 1600 adet kayıt var. Bu öznitelikler:
 
+\quad Bu projede “Red Wine Quality” isimli veri seti\cite{4} Kaggle üzerinden temin edildi. Verinin \%30 test, \%70’i de eğitim için kullanıldı. Veri setinde 11 adet öznitelik, 1600 adet kayıt bulunmaktadır. Bu öznitelikler:
 
 \begin{itemize}
   \item \textbf{fixed acidity (sabit asitlik): } Şarapla ilgili sabit, uçucu olmayan asitler. Kolayca buharlaşmazlar\cite{5}.
@@ -108,7 +109,7 @@ Red Wine, Quality, KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Ba
   \item \textbf{alcohol: } Şarabın yüzde kaç alkol içerdiğini gösterir. Kırmızı şarapta alkol oranı \%11-14 arasındadır\cite{5}.
 \end{itemize}
 
-\quad Bu veri setinde kalite sütunu yani sonuç özniteliğinde 0-1 değerleri yer alıyor. Öznitelikler doğrultusunda şarabın yüksek veya düşük kaliteli olduğunu belirtiyor. Elimizdeki bu veri setinde en verimli şekilde etiketleme yapabilmek için; KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağacı, Bagging ve Rastgele Orman Ağacı Algoritmalarını kullanmaya karar verdik. Projemizi Python dilinde, Anaconda-Spyder editöründe yazdık.
+\quad Bu veri setinde kalite sütunu yani sonuç özniteliğinde 0-1 değerleri yer almaktadır. Öznitelikler doğrultusunda şarabın yüksek veya düşük kaliteli olduğu belirtilmektedir. Elimizde bulunan bu veri setinde en verimli şekilde etiketleme yapabilmek için; KNN, SVC, Lojistik Regresyon, Naive Bayes, Karar Ağacı, Bagging ve Rastgele Orman Ağacı algoritmaları kullanıldı. Proje; Python dilinde, Anaconda-Spyder editöründe yazıldı.
 \pagebreak
 \begin{figure}[!h]
 	\centering%
@@ -122,13 +123,12 @@ Red Wine, Quality, KNN, SVC, Logistic Regression, Naive Bayes, Decision Tree, Ba
 	\label{fig:01}
 \end{figure}
 
-Projemizin akış diyagramı Şekil \ref{fig:01}'deki gibidir. Makalenin ikinci bölümünde, bahsettiğimiz algortimalar hakkında bilgiler sunulmaktadır. Daha sonraki bölümde ise sonuçlar yer almaktadır.
-
+Projenin akış diyagramı Şekil \ref{fig:01}'deki gibidir. Makalenin ikinci bölümünde, bahsedilen algoritmalar hakkında bilgiler sunulmaktadır. Daha sonraki bölümde ise sonuçlar yer almaktadır.
 
 \section{\textbf{METODLAR}}
-\quad Kırmızı şarap kalitesini tahmin edebilmek için belirlediğimiz sınıflandırma algoritmalarını kullandık. Bu algoritmalar aşağıdaki gibidir.
+\quad Kırmızı şarap kalitesini tahmin edebilmek için belirlenen sınıflandırma algoritmaları kullanıldı. Bu algoritmalar aşağıdaki gibidir.
 \subsection{\textbf{K-Nearest Neighbor}}
-\quad Gözetimli (denetimli) öğrenme metotlarından olup  basit sınıflandırma işlemlerinde kullanılır\cite{8}\cite{9}.Sınıflandırma çalışması yaparken elimizdeki veriler hakkında kısıtlı ön bilgiye sahip olduğumuzda tercih etmemiz gereken ilk algoritmalardan biridir\cite{8}.
+\quad Gözetimli (denetimli) öğrenme metotlarından olup basit sınıflandırma işlemlerinde kullanılır\cite{8}\cite{9}.Sınıflandırma çalışması yaparken elimizdeki veriler hakkında kısıtlı ön bilgiye sahip olduğumuzda tercih etmemiz gereken ilk algoritmalardan biridir\cite{8}.
 
 \begin{figure}[!h]
 	\centering%
@@ -142,7 +142,7 @@ Projemizin akış diyagramı Şekil \ref{fig:01}'deki gibidir. Makalenin ikinci 
 	\label{fig:02}
 \end{figure}
 
-\quad Bu algoritmanın performansını etkileyen parametreler; uzaklık ölçütü, komşu sayısı(k) ve ağırlıklandırma yöntemidir\cite{7}. Uzaklık ölçütü olarak Manhattan uzaklığı kullandık: \textbf{n} boyutlu düzlemdeki iki konum arasındaki farkların, mutlak değerlerinin toplamıdır. X-Y konumları arasındaki Manhattan uzaklığı: P=(x1, x2,…, xn) ve Q=(y1, y2,…, yn) olmak üzere, Eşitlik \ref{eq:01}'e göre hesaplanır\cite{7}.
+\quad Bu algoritmanın performansını etkileyen parametreler; uzaklık ölçütü, komşu sayısı(k) ve ağırlıklandırma yöntemidir\cite{7}. Uzaklık ölçütü olarak Manhattan uzaklığı kullanıldı(\textbf{n} boyutlu düzlemdeki iki konum arasındaki farkların, mutlak değerlerinin toplamı). X-Y konumları arasındaki Manhattan uzaklığı: P=(x1, x2,…, xn) ve Q=(y1, y2,…, yn) olmak üzere, Eşitlik \ref{eq:01}'e göre hesaplanır\cite{7}.
 
 \begin{equation}
 \label{eq:01}
@@ -174,18 +174,18 @@ KNN algoritmasının aşamaları\cite{9}:
 	\label{fig:03}
 \end{figure}
 
-Şekil \ref{fig:03} üzerinde siyah ve beyaz olmak üzere iki sınıf mevcut. Gelecek verilerin sınıflandırılabilmesi için öncelikle sınıfları birbirinden ayıran bir doğru çizilir. Bu doğrunun -1 ve +1 değerleri arasında kalan yeşil kısım Margin bölgesidir. Margin ne kadar geniş olursa, sınıflar o kadar iyi ayırışıyor demektir. Bu işlemin formülü Eşitlik \ref{eq:02}'deki gibidir.
+Şekil \ref{fig:03} üzerinde siyah ve beyaz olmak üzere iki sınıf mevcuttur. Gelecek verilerin sınıflandırılabilmesi için öncelikle sınıfları birbirinden ayıran bir doğru çizilir. Bu doğrunun -1 ve +1 değerleri arasında kalan yeşil kısım Margin bölgesidir. Margin ne kadar geniş olursa, sınıflar o kadar iyi ayrışıyor demektir. Bu işlemin formülü Eşitlik \ref{eq:02}'deki gibidir.
 
 \begin{equation}
 \label{eq:02}
 \Large \hat{y}=\left\{\begin{matrix} 0, w^{T} \cdot x + b < 0,\\ 1, w^{T} \cdot x + b \geq 0 \end{matrix}\right.
 \end{equation}
 
-\quad Elde ettiğimiz sonuç 0’dan küçük çıkarsa beyaz noktaların bulunduğu kısma yakın olacaktır. Sonuç 0’a eşit veya 0’dan büyük çıkarsa siyah noktaların bulunduğu kısma daha yakın olacaktır\cite{12}.
+\quad Elde edilen sonuç 0’dan küçük çıkarsa beyaz noktaların bulunduğu kısma yakın olacaktır. Sonuç 0’a eşit veya 0’dan büyük çıkarsa siyah noktaların bulunduğu kısma daha yakın olacaktır\cite{12}.
 \pagebreak
 \subsection{\textbf{Logistic Regression}}
 
-\quad Lojistik Regresyon,bize sonucu 0 veya 1 şeklinde üreten, değişkenlerin modellenmesinde kullanılan algoritmadır. Örneğin kırmızı şarap kalitesini ele aldığımız zaman; elimizdeki veri setinde 0 kalitesiz, 1 kaliteli durumunu temsil eder. Yani Lojistik Regresyon algoritmasıyla predict edilen verilerin ait oldukları sınıfları tahmin edebiliriz\cite{13}.
+\quad Lojistik Regresyon, sonucu 0 veya 1 şeklinde üreten, değişkenlerin modellenmesinde kullanılan algoritmadır. Örneğin kırmızı şarap kalitesi ele alındığında; eldeki veri setinde 0 kalitesiz, 1 kaliteli durumunu temsil eder. Yani Lojistik Regresyon algoritmasıyla verilerin ait oldukları sınıflar tahmin(predict) edilebilir\cite{13}.
 
 \begin{equation}
 \label{eq:03}
@@ -207,13 +207,13 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \end{figure}
 
 \subsection{\textbf{Naive Bayes}}
-\quad Navie Bayes algoritması sınıflandırıcı teorem olan Bayes’e dayanmaktadır\cite{15}.  Adını ingiliz matematikçi olan Thomas Bayes’ten almıştır\cite{14}. Navie Bayes, elimizdeki örneklerin hangi sınıfa ait olduğunu, işlemler sonucu elde ettiği oranla tahmin eder. Navie Bayes’ın iki önemli kabulü vardır\cite{15}. Bunlar:
+\quad Naive Bayes algoritması sınıflandırıcı teorem olan Bayes’e dayanmaktadır\cite{15}. Adını İngiliz matematikçi olan Thomas Bayes’ten almıştır\cite{14}. Naive Bayes, elimizdeki örneklerin hangi sınıfa ait olduğunu, işlemler sonucu elde ettiği oranla tahmin eder. Naive Bayes’ın iki önemli kabulü vardır\cite{15}. Bunlar:
 \begin{itemize}
 \item Elimizde bulunan niteliklerin hepsi aynı derecede önemlidir.
 \item Elimizde bulunan nitelikler birbirinden bağımsızdır.
 \end{itemize}
 
-\quad Koşullu olasılıklar arasında bağlantı kuran Bayes Teoremi, x özniteliğinin gerçekleşmiş olması durumunda C özniteliğinin gerçekleşmesi veya C özniteliğinin gerçekleşmiş olması durumunda x özniteliğinin gerçekleşmesi durumunu bize verir\cite{15}. Bayes kuralının algoritması Eşitlik \ref{eq:04}'deki gibidir. Eşitlikte yer alan değerler\cite{14}:
+\quad Koşullu olasılıklar arasında bağlantı kuran Bayes Teoremi, x özniteliğinin gerçekleşmiş olması durumunda C özniteliğinin gerçekleşmesi veya C özniteliğinin gerçekleşmiş olması durumunda x özniteliğinin gerçekleşmesi durumunu verir\cite{15}. Bayes kuralının algoritması Eşitlik \ref{eq:04}'deki gibidir. Eşitlikte yer alan değerler\cite{14}:
 
 \begin{itemize}
 \item \textbf{p(x|Cj):} j sınıfından bir örneğin x olma olasılığı
@@ -228,7 +228,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \end{equation}
 
 \subsection{\textbf{Decision Tree}}
-\quad Karar ağaçları, en yaygın kullanılan gözetimli(denetimli) öğrenme algoritmalarından birisidir. Adından da anlaşılacağı üzere ağaç tabanlı öğrenmeye dayalıdır. Tüm problemlere uyarlanabilir\cite{16}. Karar ağacı, kök düğüm değişkeninden başlayarak, ağaç dalı hiyerarşisi gibi dallanır\cite{17}.
+\quad Karar Ağacı, en yaygın kullanılan gözetimli(denetimli) öğrenme algoritmalarından birisidir. Adından da anlaşılacağı üzere ağaç tabanlı öğrenmeye dayalıdır. Tüm problemlere uyarlanabilir\cite{16}. Karar ağacı, kök düğüm değişkeninden başlayarak, ağaç dalı hiyerarşisi gibi dallanır\cite{17}.
 
 \begin{figure}[!h]
 	\centering%
@@ -242,14 +242,14 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:05}
 \end{figure}
 
-\quad Entropi, verilerimizle alakalı belirsizliğin bir ölçüsüdür; dolayısıyla entropinin düşük olması tercih edilir. Verilerimizin tamamı sezgsel olarak aynı etikete sahipse, veri setinin entropisi düşüktür diyebiliriz\cite{16}.
+\quad Entropi, verilerin belirsizliğinin bir ölçüsüdür; dolayısıyla entropinin düşük olması tercih edilir. Verilerin tamamı sezgisel olarak aynı etikete sahipse, veri setinin entropisi düşüktür denilebilir\cite{16}.
 
 \begin{equation}
 \label{eq:05}
 \Large H=-\sum p(x)\log{p(x)}
 \end{equation}
 
-\quad Burada; p(x) belirli bir sınıfa ait grubun yüzde oranını, H ise entropiyi belirtmektedir. Karar ağacı, entropiyi en aza indirecek şekilde bölünme yapmalıdır. En iyi bölümlemeyi belirlemek için kullanılan bilgi kazancı, Eşitlik \ref{eq:06}'daki gibi hesaplanır\cite{16}.
+\quad Burada; p(x) belirli bir sınıfa ait grubun yüzde oranını, H ise entropiyi belirtmektedir. Karar Ağacı, entropiyi en aza indirecek şekilde bölünme yapmalıdır. En iyi bölümlemeyi belirlemek için kullanılan bilgi kazancı, Eşitlik \ref{eq:06}'daki gibi hesaplanır\cite{16}.
 
 \begin{equation}
 \label{eq:06}
@@ -258,8 +258,8 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 
 \quad Burada; \textbf{S} orijinal veri kümesini, \textbf{D} ise kümenin bölünmüş bir parçasını temsil eder. Her \textbf{V} değeri, \textbf{S}'nin alt kümesidir\cite{16}.
 \pagebreak
-\subsection{\textbf{Bagging}}
-\quad Türkçe adıyla torbalama yöntemi olarak adlandırılan Bagging algoritması 1996 yılında Breiman tarafından geliştirilmiştir. Bagging (torbalama) algoritmasının çalışma biçimi Şekil \ref{fig:06}'da belirtilmiştir. Şekil \ref{fig:06}'daki aşamaların açıklamaları\cite{18}:
+\subsection{\textbf{Bagging (Torbalama)}}
+\quad 1996 yılında Breiman tarafından geliştirilmiştir. Bagging algoritmasının çalışma biçimi Şekil \ref{fig:06}'da belirtilmiştir. Şekil \ref{fig:06}'daki aşamaların açıklamaları\cite{18}:
 
 \begin{itemize}
 \item \textbf{Bootstrap sampling:} Orijinal veri kümesi, alt kümelere bölünür.
@@ -280,8 +280,8 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:06}
 \end{figure}
 \newpage
-\subsection{\textbf{Random Forest Tree}}
-\quad Türkçe adıyla Rastgele Orman Ağacı Algoritması, denetimli bir sınıflandırma algoritmasıdır. Adından da anlaşılacağı gibi, algoritmamız rastgele bir orman yaratıyor. Ormanda bulubab ağaç sayısı ile elde ettiğimiz çıktılar arasında doğrusal bir ilişki vardır. Ağaç sayısı arttıkça elde edilecek olan sonucun kesinliği de artar. Rastgele Orman Ağacı’nın Karar Ağacı’ndan farkı; kök bulma ve düğümleri bölme işlemlerinin çalışıyor olmasıdır\cite{19}. Rastgele Orman Ağacı’nın şeması Şekil \ref{fig:07}'de verilmiştir.
+\subsection{\textbf{Random Forest Tree (Rastgele Orman Ağacı)}}
+\quad Denetimli bir sınıflandırma algoritmasıdır. Adından da anlaşılacağı gibi, algoritma rastgele bir orman yaratır. Ormanda bulunan ağaç sayısı ile elde edilen çıktılar arasında doğrusal bir ilişki vardır. Ağaç sayısı arttıkça elde edilecek olan sonucun kesinliği de artar. Rastgele Orman Ağacı’nın, Karar Ağacı’ndan farkı; kök bulma ve düğümleri bölme işlemlerinin çalışıyor olmasıdır\cite{19}. Rastgele Orman Ağacı’nın şeması Şekil \ref{fig:07}'de verilmiştir.
 
 \begin{figure}[!h]
 	\centering%
@@ -297,7 +297,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 
 \quad Rastgele Orman Ağacı, kullanıcıdan iki parametre alır: m parametresi en iyi bölünmeyi belirlemek için her düğümde kullanılan değişkenlerin sayısı, N geliştirilecek ağaç sayısı. Öncelikle eğitim verilerinin 2/3'ü kullanılarak önyükleme örnekleri oluşturulur. Hata testi yapma amacıyla da geriye kalan 1/3'lük parça kullanılır. Bu parçaya ise \textbf{OOB (out of bag)} denir\cite{21}.
 
-\quad Düğümlerdeki \textbf{m} değerleri, bütün değerlerin içinden rastgele bir şekilde seçilir. Böylece en iyi dal belirlenmiş olur. \textbf{M} adet değişkenin kareköküne eşit olarak alınan \textbf{m} değişken, genellikle optimuma en yakın sonucu verir\cite{21}.
+\quad Düğümlerdeki \textbf{m} değerleri, bütün değerlerin içinden rastgele bir şekilde seçilir. Böylece en iyi dal belirlenmiş olur. \textbf{M} adet değişkenin kareköküne eşit olarak alınan \textbf{m} değişkeni, genellikle optimuma en yakın sonucu verir\cite{21}.
 
 \quad Sınıfların homojenliği $Gini$ indexi hesaplanarak ölçülür. $Gini$ indexi ne kadar düşükse, sınıf da o kadar homojendir. Bir düğümün alt $Gini$ indexi üst $Gini$ indexinden daha az olduğu durumlarda incelenen dal başarılı sayılır\cite{21}. $Gini$ indexinin formülü Eşitlik \ref{eq:07}'de verilmiştir. Formül değişkenlerinin temsil ettiği veriler de aşağıdaki gibidir;
 
@@ -315,7 +315,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \pagebreak
 \section{\textbf{SONUÇLAR}}
 
-\quad Elimizdeki veri setinin $\%70$'ini, belirlediğimiz ve açıkladığımız algoritmaların eğitiminde kullandık. Bu eğitimler sonrasında, veri setimizinin geri kalan $\%30$'unu ise predict(tahmin) işlemi için kullanarak algoritma modellerimizi test ettik. Bu testler sonucunda modellerimizin, veri setimiz üzerindeki başarı ve hata oranlarını Şekil \ref{fig:08}'deki grafiğe döktük.
+\quad Veri seti; $\%70$'i eğitim, $\%30$'u ise test için kullanılmak üzere iki parçaya ayrıldı. Oluşturulan model eğitim verisiyle eğitildi. Daha sonra test verisi ile predict(tahmin) işlemine tâbi tutuldu. Bu işlemler sonucunda elde edilen doğruluk$(acc)$ ve hata$(MSE)$ oranları Şekil \ref{fig:08}'deki grafiğe döküldü.
 
 \begin{figure}[!h]
 	\centering
@@ -328,7 +328,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:08}
 \end{figure}
 
-\quad Kırmızı şarap kalitesinin tahmin edilebilmesi için, "Red Wine Quality"\cite{4} isimli veri seti üzerinden Bagg, DT, KNN, LG, NB, RF ve SVM sınıflandırıcıları kullanılmıştır. Bu algoritmaların $acc$, $MSE$ ve $AUC$ değerleri, Tablo \ref{tbl:01}'de verilmiştir.
+\quad Kırmızı şarap kalitesinin tahmin edilebilmesi için, "Red Wine Quality"\cite{4} isimli veri seti; Bagg, DT, KNN, LG, NB, RF ve SVM sınıflandırıcıları kullanılmıştır. Bu algoritmaların $acc$, $MSE$ ve $AUC$ değerleri, Tablo \ref{tbl:01}'de verilmiştir.
 
 \begin{table}[h]
 	\centering
@@ -348,15 +348,15 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{tbl:01}
 \end{table}
 
-\quad Tablo \ref{tbl:01} incelendiği zaman, en yüksek doğruluk değerine $(acc)$ sahip olan algoritmanın Random Forest $(0.80)$ olduğunu görüyoruz. Ardından bunu takip eden algoritma ise $0.7833$ doğruluk oranı ile Bagging Classifier oluyor. Üçüncü sırada ise $0.7645$ doğruluk oranlarıyla Decision Tree yer alıyor. Geri kalan algoritmaların $acc$ değerleri de Tablo \ref{tbl:01}'de görülmektedir.
+\quad Tablo \ref{tbl:01} incelendiği zaman, en yüksek doğruluk değerine $(acc)$ sahip olan algoritmanın Random Forest $(0.80)$ olduğu görülebilir. Bunu takip eden algoritma ise $0.7833$ doğruluk oranı ile Bagging Classifier’dır. Üçüncü sırada ise $0.7645$ doğruluk oranıyla Decision Tree yer almaktadır. Geriye kalan algoritmaların $acc$ değerlerine ise Tablo \ref{tbl:01}'de yer verilmiştir.
 
-\quad $MSE$ (mean squared error/ortalama kare hatası) değerleri için Tablo \ref{tbl:01} incelendiği zaman, en düşük $MSE$ değerine sahip olan algoritmanın Random Forest $(0.20)$ olduğunu görüyoruz. En yüksek $MSE$ değerinin ise $0.2937$ oranıyla K-Nearest Neighbor algoritmasına ait olduğunu görüyoruz.
+\quad $MSE$ (mean squared error/ortalama kare hatası) değerleri için; Tablo \ref{tbl:01} incelendiği zaman, en düşük $MSE$ değerine sahip olan algoritmanın Random Forest $(0.20)$ olduğu görülebilir. En yüksek $MSE$ değeri ise $0.2937$ oranıyla K-Nearest Neighbor algoritmasına aittir.
 
 \pagebreak
 
 \subsection{\textbf{Tüm Algoritmalara Ait ROC Eğrisi Grafiği}}
 
-\quad Makine öğrenmesinde performans ölçümünde ROC eğrisinden de yararlanırız. Bu eğrilerin $AUC$(doğruluk) değerleri de mevcuttur ancak algoritmanın tahmin doğruluk skoruyla $(acc)$ karıştırılmamalıdır\cite{22}. Elimizdeki algoritmaların ROC eğrilerini Şekil \ref{fig:09}'da verdik. Eğrilerin doğruluk oranları da Tablo \ref{tbl:01}'de belirtilmiştir.
+\quad Makine öğrenmesi algoritmalarının performans ölçümünde ROC eğrisinden de yararlanılır. Bu eğrilerin $AUC$(doğruluk) değerleri de mevcuttur ancak algoritmanın tahmin doğruluk skoruyla $(acc)$ karıştırılmamalıdır\cite{22}. Eldeki algoritmaların ROC eğrileri Şekil \ref{fig:09}'da verildi. Eğrilerin doğruluk oranları da Tablo \ref{tbl:01}'de belirtildi.
 
 \begin{figure}[!h]
 	\centering
@@ -371,7 +371,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 
 \subsection{\textbf{Confusion Matrix (Hata Matrisi)}}
 
-\quad Tablo \ref{tbl:01}'de en yüksek doğruluk $(acc)$ değerine $(0.80)$ sahip olan Random Forest algoritması, yine aynı şekilde en düşük $(0.20)$ hata oranına $(MSE)$ da sahiptir. Diğer algoritmalara baktığımız zaman elde edilen doğruluk $(acc)$ ve hata $(MSE)$ değerleri arasında ters orantı vardır. Yani $acc$ değerimiz ne kadar yüksek olursa $MSE$ değerimiz de o kadar düşük olmaktadır.
+\quad Tablo \ref{tbl:01}'de en yüksek doğruluk $(acc)$ değerine $(0.80)$ sahip olan Random Forest algoritması, yine aynı şekilde en düşük $(0.20)$ hata oranına $(MSE)$ da sahiptir. Doğruluk $(acc)$ ve hata $(MSE)$ değerleri arasında ters orantı vardır. Yani $acc$ değeri ne kadar yüksek olursa $MSE$ değeri de o kadar düşük olmaktadır.
 
 \begin{itemize}
 \item $acc + MSE = 1$
@@ -455,17 +455,18 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 \end{figure}
 \pagebreak
 
-
-
 \newpage
 \subsection{\textbf{Cross-Validation (Çapraz Doğrulama)}}
-\quad Sınıflandırma algoritmalarımızı bir kez eğittiğimiz zaman elde ettiğimiz verileri Tablo \ref{tbl:01}'de belirttik. Elimizdeki  Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarının üzerinde, \textbf{10 Kat Çapraz Doğrulama} yöntemini kullanarak 30 farklı koşma işlemi gerçekleştirdik. Bu koşma işlemlerinin tamamı rastgele ve birbirinden bağımsız olduğu için, farklı durumlarda algoritmaların nasıl çalıştığını da daha iyi anlamış olduk.
+\quad Cross-Validation, oluşturulan modelin birden fazla iterasyonda eğitilmesini sağlayan bir fonksiyondur. Normal çalıştırmalardan farkı, veri setindeki $train-test$ bölme işlemini her seferinde yeniden ve farklı bir şekilde yapıyor olmasıdır.
+
+\quad Sınıflandırma algoritmaları bir kez eğitildi ve elde edilen veriler Tablo \ref{tbl:01}'de verildi. Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarının üzerinde, \textbf{10 Kat Çapraz Doğrulama} yöntemi kullanılarak 30 farklı koşma işlemi gerçekleştirildi. Bu koşma işlemlerinin tamamı rastgele ve birbirinden bağımsız olduğu için, farklı durumlarda algoritmaların nasıl çalıştığı da daha iyi anlaşılmış oldu.
+
 
 \begin{figure}[!h]
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.225]{pictures/pic_17.png}&
+			\includegraphics[scale=0.2]{pictures/pic_17.png}&
 		\end{tabular}
 	\end{center}
 	\caption{K-Nearest Neighbor Cross-Validation}
@@ -476,7 +477,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.225]{pictures/pic_18.png}&
+			\includegraphics[scale=0.2]{pictures/pic_18.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Support Vector Machines Cross-Validation}
@@ -487,7 +488,7 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\centering
 	\begin{center}
 		\begin{tabular}{cc}
-			\includegraphics[scale=0.225]{pictures/pic_19.png}&
+			\includegraphics[scale=0.2]{pictures/pic_19.png}&
 		\end{tabular}
 	\end{center}
 	\caption{Logistic Regression Cross-Validation}
@@ -538,11 +539,11 @@ Lojistik regresyon, $\left(-\infty,+\infty \right)$ aralığındaki değerleri g
 	\label{fig:23}
 \end{figure}
 
-\quad  Bagg, DT, KNN, LG, NB, RF ve SVM algoritmalarını \textbf{10 Kat Çapraz Doğrulama} yöntemi kullanarak eğittik, çıkan sonuçları ise Şekil \ref{fig:17}, \ref{fig:18}, \ref{fig:19}, \ref{fig:20}, \ref{fig:21}, \ref{fig:22} ve \ref{fig:23}'te görselleştirdik. Bu yöntem sonucunda;
+\quad Bagg, DT, KNN, LG, NB, RF ve SVM algoritmaları \textbf{10 Kat Çapraz Doğrulama} yöntemi kullanarak eğitildi, çıkan sonuçlar ise Şekil \ref{fig:17}, \ref{fig:18}, \ref{fig:19}, \ref{fig:20}, \ref{fig:21}, \ref{fig:22} ve \ref{fig:23}'te görselleştirildi. Bu yöntem sonucunda;
 \begin{itemize}
 \item \textbf{Çalışma Sayısı}$(30) * $\textbf{Algoritma Sayısı}$(7) = \textbf{210}$
 \end{itemize}
-adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:02}'de belirttik.
+adet sonuç elde edildi. Bu sonuçların ortalama değerleri de Tablo \ref{tbl:02}'de belirtildi.
 
 \begin{table}[h]
 	\centering
@@ -562,19 +563,28 @@ adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:
 	\label{tbl:02}
 \end{table}
 
-\quad Tablo \ref{tbl:02}'deki değerlere baktığımız zaman en yüksek doğruluk ortalamasına sahip algoritmanın Random Forest $(0.7448)$ ve en düşük standart devinasyon ortalamasına sahip algoritmanın da Decision Tree $(0.0840)$ olduğunu görüyoruz.
+\textbf{Standard Devination (Standart Sapma): } Değişken veri değerlerinin yayılımı özetlemek için kullanılır. Formülü Eşitlik\ref{eq:08}’teki gibidir.
 
-\quad Bagging algoritmasının $acc$ değerlerine baktığımız zaman diğer algoritmaların ortalamasının üstünde kaldığını ve $StandardDevination$ değerinin de diğer algoritmaların ortalamasının altında kaldığını görüyoruz. Bu senaryoda en verimli algoritmalardan birinin de Bagging olduğunu söyleyebiliriz.
+\begin{equation}
+\label{eq:08}
+\Large \sigma= \sqrt{E((X-E(X))_{}^{2})}
+\end{equation}
+
+\quad Tablo \ref{tbl:02}'deki değerlere bakıldığı zaman en yüksek doğruluk ortalamasına sahip algoritmanın Random Forest $(0.7448)$ ve en düşük standart sapma ortalamasına sahip algoritmanın da Decision Tree $(0.0840)$ olduğu görülmektedir.
+
+\quad Bagging algoritmasının $acc$ değerlerine bakıldığı zaman diğer algoritmaların ortalamasının üstünde kaldığını ve $StandardDevination$ değerinin de diğer algoritmaların ortalamasının altında kaldığı görülmektedir. Bu senaryoda en verimli algoritmalardan birinin de Bagging olduğu söylenebilir.
+
 
 %%%%%%%%%%%%%%%%%%%%
 
-\newpage
+\pagebreak
+
 \section{\textbf{SONUÇ}}
-\quad Bu projede kullanılan veri seti sayesinde kırmızı şarabın kalitesinin, ortalamanın üstünde veya altında olduğunu tahmin etmeye çalıştık. Bunu yapmak için, önceden belirlediğimiz algoritmaları kullandık ve sonuçlarını karşılaştırdık. Her algoritmada farklı doğruluk değerleri elde ettik. Bazı algoritmalar bu veri seti için daha yeterli olurken bazıları daha yetersiz kaldı. Algoritmaların veri setiyle verimli çalışabilmesi için, veri setinin detaylandırılması gerekir. Bunu da doğru özniteliklerin eklenmesi veya çıkartılması, örnek sayısının çoğaltılmasıyla sağlayabiliriz. Bu sayede kalite ölçümünü daha efektif hale getirebiliriz.
+\quad Bu projede kullanılan veri seti sayesinde kırmızı şarabın kalitesinin, ortalamanın üstünde veya altında olduğu tahmin edilmeye çalışılmıştır. Bunu yapmak için, önceden belirlenen algoritmalar kullanıldı ve sonuçları karşılaştırıldı. Her algoritmada farklı doğruluk değerleri elde edilmiştir. Bazı algoritmalar bu veri seti için daha yeterli olurken bazıları daha yetersiz kaldı. Algoritmaların veri setiyle verimli çalışabilmesi için, veri setinin detaylandırılması gerekir. Bunu da doğru özniteliklerin eklenmesi veya çıkartılması, örnek sayısının çoğaltılmasıyla sağlanabilir. Bu sayede kalite ölçümü daha efektif hale getirilebilir.
 
 \begin{figure}[!h]
-\centering
-\begin{center}
+	\centering
+	\begin{center}
 		\begin{tabular}{cc}
 			\includegraphics[scale=0.375]{pictures/pic_24.png}&
 		\end{tabular}
@@ -583,14 +593,32 @@ adet sonuç elde ettik. Bu sonuçların ortalama değerlerini de Tablo \ref{tbl:
 	\label{fig:24}
 \end{figure}
 
-\quad $X-ekseni$'ne baktığımız zaman algoritmalarımızın isimlerini, $Y-ekseni$'ne baktığımızda ise bu algoritmaların çalışma sayılarını görüyoruz. Elimizdeki $X-Y$ şeklindeki 2D ortama 3. bir boyut ekleyerek, bu algoritmaların çalışma sonuçlarını da $Z-ekseni$'ne eklemiş oluyoruz.
+\quad $X-ekseni$'ne bakıldığı zaman algoritmaların isimleri, $Y-ekseni$'ne bakıldığında ise bu algoritmaların çalışma sayıları görülmektedir. Eldeki $X-Y$ şeklindeki 2D ortama 3. bir boyut$(Z-ekseni)$ olarak, bu algoritmaların çalışma sonuçları da eklendi.
 
-\quad Elimizdeki bu 3D grafiği incelersek, en yüksek ortalamaya sahip algoritmanın Random Forest olduğunu anlayabiliriz. Çalışma sonuçlarını küçükten büyüğe sıralayarak bir rampa oluşmasını sağladık. Bu sayede rampanın yüksek kısmında kalan algoritmalar yüksek verimliliğer sahip algoritmalar oldu.
+\quad 3D grafik incelenirse, en yüksek ortalamaya sahip algoritmanın Random Forest olduğu anlaşılır. Çalışma sonuçları küçükten büyüğe sıralanarak bir rampa oluşması sağlandı. Bu sayede rampanın yüksek kısmında kalan algoritmalar, yüksek verimliliğe sahip algoritmalar oldu.
+
+\begin{table}[h]
+	\centering
+		\normalsize
+\begin{tabular}{|c|cc|cc|}
+\hline
+
+
+\multirow{2}{*}{}          & \multicolumn{2}{c|}{\textbf{Mevcut Proje}}      & \multicolumn{2}{c|}{\textbf{gollakeerthana}}         \\ \cline{2-5} 
+                           & \multicolumn{1}{c|}{\textbf{acc}} & \textbf{St.Dev.} & \multicolumn{1}{c|}{\textbf{acc}} & \textbf{St.Dev.} \\ \hline
+\textbf{Random Forest}     & \multicolumn{1}{c|}{\textbf{0.7448}}      & 0.1090       & \multicolumn{1}{c|}{\textbf{0.6875}}      & N/A       \\ \hline
+\textbf{Logistic Regression} & \multicolumn{1}{c|}{0.7336}      & \textbf{0.0969}       & \multicolumn{1}{c|}{0.5854}      & N/A       \\ \hline
+\end{tabular}
+\caption{\textbf{gollakeerthana} kullanıcısının eğitim sonuçları\cite{23} ile karşılaştırma}
+	\label{tbl:03}
+\end{table}
+
+\quad Ortak veri seti kullanılan bir kullanıcının eğitim sonuçları\cite{23} ile elde edilen sonuçlar karşılaştırılırsa, çok daha iyi bir sonuç elde edildiği görülebilir. Bunun sebebi veri seti üzerinde gerçekleştirilen önişleme adımlarıdır.
 
 %%%%%%%%%%%%%%%%%%%%
 
 \newpage
-\begin{thebibliography}{22}
+\begin{thebibliography}{23}
 
 \bibitem{1} 
 DergiPark - Şarap Üretimi ve Kalite
@@ -679,6 +707,11 @@ SlideShare - Rastgele Orman Ağacı Algoritması
 \bibitem{22} 
 Medium - ROC Eğrisi
 \\\texttt{\href{https://bernatas.medium.com/roc-eğrisi-ve-eğri-altında-kalan-alan-auc-97b058e8e0cf}{\nolinkurl{medium.com/roc-eğrisi}}}
+
+\bibitem{23} 
+Kaggle - Red Wine Quality
+\\\texttt{\href{https://www.kaggle.com/gollakeerthana/red-wine-quality-lr-rf-93}{\nolinkurl{kaggle.com/gollakeerthana/red-wine-quality}}}
+
 
 
 \end{thebibliography}
